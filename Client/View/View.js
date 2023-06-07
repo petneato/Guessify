@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-import "Client\View\view.css"
+import "Client\\View\\view.css";
 
-class view {
+export default class view {
     
     constructor(CLIENT_ID, REDIRECT_URI, AUTH_ENDPOINT, RESPONSE_TYPE) {
         this.CLIENT_ID = CLIENT_ID;
