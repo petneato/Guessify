@@ -1,0 +1,72 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background-color: #282c34; /* Spotify's black color */
+}
+
+.Super {
+  color: #ffffff; /* Spotify's text is usually white */
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-header {
+  text-align: center;
+  width: 60%; /* make the content area narrower */
+  margin: 0 auto; /* center the content area */
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+button {
+  background-color: #1DB954; /* Spotify's green color */
+  color: #ffffff;
+  border: none;
+  padding: 20px 40px; /* increased padding to make the button bigger */
+  font-size: 1.2em; /* increased font-size */
+  border-radius: 50px;
+  transition: background-color 0.5s ease;
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1ed760; /* A lighter green for hover state */
+}
+
+body {
+  font-family: 'Circulaire', 'Helvetica Neue', 'Arial', sans-serif; /* Spotify uses the 'Circulaire' font, but it is proprietary. 'Helvetica Neue' and 'Arial' are common fallbacks. */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 3em; /* Increased font size for wider screen */
+  margin-bottom: 0em;
+}
+
+h3 {
+  font-size: 1.8em; /* Increased font size for wider screen */
+  color: #b3b3b3; /* A lighter color for the subtitle */
+  margin-bottom: 1em;
+  margin-top: 0em;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
