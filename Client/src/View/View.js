@@ -15,23 +15,24 @@ function View() {
 
     getLoginToken(code, codeVerifier);
 
-    // window.open("http://localhost:3000/home", "_self");
+    window.open("http://localhost:3000/home", "_self");
 
   } else if (window.location.pathname === '/home') {
     let accessToken = window.localStorage.getItem('access_token');
     
-    let data = getProfile(accessToken);
+    // let data = getProfile(accessToken);
 
-    console.log(data);
+    // console.log(data);
     let playlists = getPlaylist(accessToken, '3cEYpjA9oz9GiPac4AsH4n');
     console.log(playlists);
+    
     return (
       <div className="Super">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1>Guessify</h1>
           <h3>Spotify Guessing Game</h3>
-          <h4>welcome: { data.value }</h4>
+          <h4>welcome: {}</h4>
         </header>
         <body>
 
