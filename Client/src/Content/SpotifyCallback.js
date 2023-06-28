@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 function SpotifyCallback(){
 
-    let [user, setUser] = useState([]);
+    let [user, setUser] = useState("");
     let [token, setToken] = useState("");
 
     useEffect(() => {
@@ -33,14 +33,22 @@ function SpotifyCallback(){
 
     }, [token])
 
+    let image;
+
+    if(user === ""){
+        image = logo
+    }  else {
+        image = user.images[0].url;
+    }
+    
 
     return(
         <div className="Super">
         <header className="App-header">
-          <img src={user.images[0].url} className="App-logo" alt="logo" />
+          <img src={image} className="App-logo" alt="logo" />
           <h1>Guessify</h1>
           <h3>Spotify Guessing Game</h3>
-          <h4>welcome: {user.display_name}</h4>
+          <h4>Welcome {user.display_name}!</h4>
         </header>
         <body>
 
