@@ -1,0 +1,52 @@
+.App-header {
+    color: #1ED760; /* Spotify Green */
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .Super {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .listCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 15px;
+    width: 200px;
+    height: 300px;
+    border-radius: 10px;
+    background-color: #121212; /* Spotify Black */
+    color: #ffffff; /* White */
+  }
+  
+  .listCard img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .listCard .listName {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .listCard button {
+    margin-top: auto;
+    padding: 10px 20px;
+    background-color: #1ED760; /* Spotify Green */
+    color: #ffffff; /* White */
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .listCard button:hover {
+    background-color: #1DD05D; /* Slightly Lighter Green */
+  }
+  
