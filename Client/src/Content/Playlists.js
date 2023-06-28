@@ -43,10 +43,10 @@ function View(json) {
 
       <body>
         <form>
-          <div className='listCard'>
+          <div className='lstCard'>
             <img href={listImg} alt='Playlist Cover Image'></img>
-            <h5 className='listName'>{listName}</h5>
-            <button>Select</button>
+            <h5 className='lstName'>{listName}</h5>
+            <button className='selBtn'>Select</button>
           </div>
         </form>
       </body>
