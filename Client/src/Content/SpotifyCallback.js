@@ -34,13 +34,12 @@ function SpotifyCallback(){
     }, [token])
 
     let image;
-
-    if(user === ""){
-        image = logo
-    }  else {
-        image = user.images[0].url;
-    }
     
+    try {
+        image = user.images[0].url;
+    } catch {
+        image = logo
+    }
 
     return(
         <div className="Super">
@@ -57,4 +56,5 @@ function SpotifyCallback(){
     )
 
 }
+
 export default SpotifyCallback;
