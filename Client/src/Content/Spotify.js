@@ -60,7 +60,7 @@ export function getLoginToken(code, codeVerifier) {
         code_verifier: codeVerifier
     });
 
-    const response = fetch('https://accounts.spotify.com/api/token/', {
+    const response = fetch('https://accounts.spotify.com/api/token', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -90,8 +90,7 @@ export async function getProfile(accessToken) {
         }
     });
 
-    const data = await response;
-    return data;
+    return await response.json();
 }
 
 export async function getPlaylist(accessToken, playlistURI){
