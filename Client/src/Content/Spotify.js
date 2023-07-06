@@ -99,13 +99,7 @@ export async function getPlaylist(accessToken, playlistURI){
         headers: {
             Authorization: 'Bearer ' + accessToken
         }
-    }).then(data => {
-        // console.log(data.json());
-        if(data.ok){
-            return  data;
-        }
-    })
+    });
 
-    // const data = await response.json();
-    // return data;
+    return await response.json();
 }

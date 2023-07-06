@@ -8,6 +8,10 @@ function SpotifyCallback(){
     let [user, setUser] = useState("");
     let [token, setToken] = useState("");
 
+    let goPlay = () => {
+        window.open("http://localhost:3000/playlistview","_self")
+    }
+
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
         let code = urlParams.get('code');
@@ -48,6 +52,7 @@ function SpotifyCallback(){
           <h1>Guessify</h1>
           <h3>Spotify Guessing Game</h3>
           <h4>Welcome {user.display_name}!</h4>
+          <button onClick={goPlay} >playlist veiwer 😊</button>
         </header>
         <body>
 
