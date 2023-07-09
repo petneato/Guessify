@@ -1,6 +1,6 @@
 // const fs = require('fs');
 import data from '../testPlaylist.json';
-function View(json) {  
+export function Playlists(json) {  
   
   //The below implementation utilize JSX which can only be run on a server
   // let data;
