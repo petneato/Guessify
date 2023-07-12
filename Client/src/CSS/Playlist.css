@@ -1,13 +1,14 @@
-.Super {
+.SuperC {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   background: #696464;
+  font-size: calc(10px + 2vmin);
   color: white; /* Spotify Green */
 }
 
-.Super h1 {
+.SuperC h1 {
   width: 100%;
   text-align: center;
   padding-bottom: 20px;

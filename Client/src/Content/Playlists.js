@@ -7,6 +7,7 @@ function Playlists() {
   let [token, setToken] = useState("");
   let [playlists, setPlaylists] = useState([]);
   let [playlistData, setPlaylistData] = useState([]);
+  let [selectedPlaylists, setSelectedPlaylists] = useState([]);
 
   useEffect(() => {
       setToken(window.localStorage.getItem('access_token'));
@@ -20,32 +21,25 @@ function Playlists() {
     })();
   }, [token]);
 
-  // useEffect(() => {
-  //   (async () => {
-  //     let data = [];
-  //     for(let playlist of playlists) {
-  //       let currPlaylist = await getPlaylist(token, playlist);
-  //       let image = currPlaylist.images[0].url
-  //       data.push({name: currPlaylist.name, image})
-  //     }
-  //     setPlaylistData(data);
-  //   })();
-  // }, [playlists]);
-
   useEffect(() => {
     console.log(playlists)
 
     let data = [];
     for (let playlist of playlists) { 
       let image = playlist.images[0].url
-      data.push({name: playlist.name, image})
+      data.push({name: playlist.name, image, id: playlist})
     }
-
+  
     setPlaylistData(data)
   }, [playlists]);
 
+  function select(idx) {
+    console.log('index: ' + idx + " added")
+    setSelectedPlaylists(oldSelectedPlaylists => [...oldSelectedPlaylists, idx])  
+  }
+
   return (
-    <div className='Super'>
+    <div className='SuperC'>
       <h1>Select a Playlist</h1>
 
       <div className='cards'>
@@ -54,7 +48,7 @@ function Playlists() {
             <div key={index} className='listCard' >
               <img src={playlist.image} alt='Playlist Cover' />
               <h5 className='listName'>{playlist.name}</h5>
-              <button className='listBtn'>Select</button>
+              <button onClick={() => select(playlist.id)} className='listBtn'>Select</button>
             </div>
           )
         })}
@@ -64,16 +58,5 @@ function Playlists() {
   );
 
 }
-
-// function getCoverImg(imgUrl){
-//   return fetch(imgUrl)
-//     .then(response => response.blob())
-//     .then(blob => {
-//       let objectURL = URL.createObjectURL(blob);
-//       return objectURL; // return the URL, not an img element
-//     })
-//     .catch(error => console.error(error));
-// }
-
 
 export default Playlists;
