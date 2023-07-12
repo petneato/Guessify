@@ -2,7 +2,7 @@ import {loginPKCE, getProfile, getLoginToken, getPlaylist} from './Spotify.js'
 import logo from '../Images/Spotify.png';
 import '../CSS/View.css'
 
-export function View() {
+function View() {
 
   return (
     <div className="Super">
@@ -19,3 +19,5 @@ export function View() {
     </div>
   );
 }
+
+export default View;

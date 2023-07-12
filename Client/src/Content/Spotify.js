@@ -103,3 +103,23 @@ export async function getPlaylist(accessToken, playlistURI){
 
     return await response.json();
 }
+
+export async function getAllPlaylist(acessToken){
+
+    const response = await fetch('https://api.spotify.com/v1/me/playlists/', {
+        headers: {
+            Authorization: 'Bearer ' + acessToken
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        let playlistIds = data.items.map(playlist => playlist.id);
+        return playlistIds;
+    })
+    .catch(error => {
+        console.error(error)
+        return [];
+    });
+
+    return response;
+}

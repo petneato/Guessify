@@ -1,0 +1,623 @@
+[
+    {
+        "name": "Ice Nine Kills",
+        "public": true,
+        "tracks": [
+            {
+                "name": "The Nature Of The Beast",
+                "artist": "Ice Nine Kills",
+                "album": "Every Trick In The Book",
+                "uri": "spotify:track:5A5cLXYrHzVfnpQdVw6i6e"
+            },
+            {
+                "name": "Stabbing In The Dark",
+                "artist": "Ice Nine Kills",
+                "album": "The Silver Scream",
+                "uri": "spotify:track:7H5q9RsWBDRrKq2qCdv2HG"
+            },
+            {
+                "name": "The American Nightmare",
+                "artist": "Ice Nine Kills",
+                "album": "The Silver Scream",
+                "uri": "spotify:track:04K2bMi2vyOBwxr5EjDq5O"
+            },
+            {
+                "name": "A Grave Mistake",
+                "artist": "Ice Nine Kills",
+                "album": "The Silver Scream",
+                "uri": "spotify:track:2mMNBgFRyEiRoGvrdoONeq"
+            },
+            {
+                "name": "Assault & Batteries",
+                "artist": "Ice Nine Kills",
+                "album": "Welcome To Horrorwood: The Silver Scream 2",
+                "uri": "spotify:track:49pK9QQ6zYLM8xMTliDYQl"
+            },
+            {
+                "name": "Hip To Be Scared [Feat. Jacoby Shaddix]",
+                "artist": [
+                    "Ice Nine Kills",
+                    "Jacoby Shaddix"
+                ],
+                "album": "Welcome To Horrorwood: The Silver Scream 2",
+                "uri": "spotify:track:1tBghD5Z8rBeN7eHDXLamy"
+            }
+        ]
+    },
+    {
+        "name": "NuAbbigail",
+        "public": true,
+        "tracks": [
+            {
+                "name": "Snuff",
+                "artist": "Slipknot",
+                "album": "All Hope Is Gone",
+                "uri": "spotify:track:3RptaQ5Xb8WvtpItZ2f9Hi"
+            },
+            {
+                "name": "Gaddaar",
+                "artist": "Bloodywood",
+                "album": "Rakshak",
+                "uri": "spotify:track:3Kj2M9gRU1Lwf5eiNjBtBp"
+            },
+            {
+                "name": "Starve",
+                "artist": "Blood Youth",
+                "album": "Starve",
+                "uri": "spotify:track:3ntuzFJ6krl2Bd4qPEN9el"
+            },
+            {
+                "name": "The Answer",
+                "artist": "Blood Youth",
+                "album": "Starve",
+                "uri": "spotify:track:1qsgfbLlMRg3l3V0DGRJdl"
+            },
+            {
+                "name": "Spineless",
+                "artist": "Blood Youth",
+                "album": "Starve",
+                "uri": "spotify:track:3QOZx1JXwb4ZlJ4pjewEnF"
+            },
+            {
+                "name": "Spit It Out",
+                "artist": "Slipknot",
+                "album": "Slipknot",
+                "uri": "spotify:track:2yTnWN1R5j6grXC8YLf5mc"
+            },
+            {
+                "name": "Wait and Bleed",
+                "artist": "Slipknot",
+                "album": "Slipknot",
+                "uri": "spotify:track:15DLl1r2zi07Ssq5RT1yT0"
+            },
+            {
+                "name": "Eyeless",
+                "artist": "Slipknot",
+                "album": "Slipknot",
+                "uri": "spotify:track:2yYX7KbfWZrezWVW1vN3iz"
+            },
+            {
+                "name": "Disasterpiece",
+                "artist": "Slipknot",
+                "album": "Iowa",
+                "uri": "spotify:track:47VSmPTydr0saGjbQGwCeg"
+            },
+            {
+                "name": "Duality",
+                "artist": "Slipknot",
+                "album": "Vol. 3: The Subliminal Verses",
+                "uri": "spotify:track:61mWefnWQOLf90gepjOCb3"
+            },
+            {
+                "name": "Before I Forget",
+                "artist": "Slipknot",
+                "album": "Vol. 3: The Subliminal Verses",
+                "uri": "spotify:track:6wqJeItl3Vc3az4ZicSQAB"
+            },
+            {
+                "name": "Freak On a Leash",
+                "artist": "Korn",
+                "album": "Follow The Leader",
+                "uri": "spotify:track:6W21LNLz9Sw7sUSNWMSHRu"
+            },
+            {
+                "name": "Blind",
+                "artist": "Korn",
+                "album": "Korn",
+                "uri": "spotify:track:1pr9TZGOXeJUggIal1Wq3R"
+            },
+            {
+                "name": "Falling Away from Me",
+                "artist": "Korn",
+                "album": "Issues",
+                "uri": "spotify:track:2F6FfZ4w8z3eJpSxPotVO5"
+            },
+            {
+                "name": "Dicker's Done",
+                "artist": "Tallah",
+                "album": "The Generation Of Danger",
+                "uri": "spotify:track:173hPUwOhkTCZJ7KGYVomW"
+            }
+        ]
+    },
+    {
+        "name": "some beautiful place to get lost",
+        "public": false,
+        "tracks": [
+            {
+                "name": "Let's Get Lost",
+                "artist": "Elliott Smith",
+                "album": "From A Basement On The Hill",
+                "uri": "spotify:track:7CV3sIPtEwUhdZ5E3Qgykq"
+            },
+            {
+                "name": "King's Crossing",
+                "artist": "Elliott Smith",
+                "album": "From A Basement On The Hill",
+                "uri": "spotify:track:0pMazmJOCNRnIWe3I8COVd"
+            },
+            {
+                "name": "Sweet Adeline",
+                "artist": "Elliott Smith",
+                "album": "XO",
+                "uri": "spotify:track:5KmMMmc1pXL5lL4HlR9Srz"
+            },
+            {
+                "name": "Independence Day",
+                "artist": "Elliott Smith",
+                "album": "XO",
+                "uri": "spotify:track:3pM7gfel0ho7yVJw4KK5Eq"
+            },
+            {
+                "name": "Waltz #2 (XO)",
+                "artist": "Elliott Smith",
+                "album": "XO",
+                "uri": "spotify:track:5AMrnF761nziCWUfjBgRUI"
+            },
+            {
+                "name": "Pitseleh",
+                "artist": "Elliott Smith",
+                "album": "XO",
+                "uri": "spotify:track:1Q0sk7b7PAGjgC3R5zyuWt"
+            },
+            {
+                "name": "Oh Well, OK",
+                "artist": "Elliott Smith",
+                "album": "XO",
+                "uri": "spotify:track:7AG284RTvcDG9uHt1NQIbu"
+            },
+            {
+                "name": "Baby Britain",
+                "artist": "Elliott Smith",
+                "album": "XO",
+                "uri": "spotify:track:3pwj90XGAD6I0jO3q6fkCx"
+            },
+            {
+                "name": "Miss Misery",
+                "artist": "Elliott Smith",
+                "album": "XO (Deluxe Edition)",
+                "uri": "spotify:track:4zetUxeSCCDwrr1jJT0SuD"
+            },
+            {
+                "name": "Between the Bars",
+                "artist": "Elliott Smith",
+                "album": "Either/Or",
+                "uri": "spotify:track:1JbUMtVkQuaAPdHOvncVTm"
+            },
+            {
+                "name": "Say Yes",
+                "artist": "Elliott Smith",
+                "album": "Either/Or",
+                "uri": "spotify:track:4IKMZtDIqyQDA6a4YvsgpK"
+            },
+            {
+                "name": "Angeles",
+                "artist": "Elliott Smith",
+                "album": "Either/Or",
+                "uri": "spotify:track:1aMafyDbpEw3a8FrVhwRlg"
+            },
+            {
+                "name": "No Name No. 5",
+                "artist": "Elliott Smith",
+                "album": "Either/Or",
+                "uri": "spotify:track:1pDIEcL6F2iZfgFbwmktw9"
+            },
+            {
+                "name": "Pictures Of Me",
+                "artist": "Elliott Smith",
+                "album": "Either/Or",
+                "uri": "spotify:track:3SCgkLOzAf13rgHoempJs1"
+            },
+            {
+                "name": "Everything Means Nothing To Me",
+                "artist": "Elliott Smith",
+                "album": "Figure 8",
+                "uri": "spotify:track:6YNfrgCOy1dCXZKKRUuZVq"
+            },
+            {
+                "name": "Everything Reminds Me Of Her",
+                "artist": "Elliott Smith",
+                "album": "Figure 8",
+                "uri": "spotify:track:3nkdVXnH4xC6f3YZS0C8pC"
+            },
+            {
+                "name": "Better Be Quiet Now",
+                "artist": "Elliott Smith",
+                "album": "Figure 8",
+                "uri": "spotify:track:4xrJ4ptfR0OL8PWF21Pdgu"
+            },
+            {
+                "name": "Son Of Sam",
+                "artist": "Elliott Smith",
+                "album": "Figure 8",
+                "uri": "spotify:track:6tPiCU4LFsXUQPRIykOAnl"
+            },
+            {
+                "name": "Happiness/The Gondola Man",
+                "artist": "Elliott Smith",
+                "album": "Figure 8",
+                "uri": "spotify:track:3aU2ui8JQOtmgHYH0g1qFL"
+            },
+            {
+                "name": "Somebody That I Used To Know",
+                "artist": "Elliott Smith",
+                "album": "Figure 8",
+                "uri": "spotify:track:4xfAVJL8R7mVYbDk8a9xOY"
+            },
+            {
+                "name": "Clementine",
+                "artist": "Elliott Smith",
+                "album": "Elliott Smith",
+                "uri": "spotify:track:1pTwsLvnN8xPULDGzRjnfd"
+            },
+            {
+                "name": "Alphabet Town",
+                "artist": "Elliott Smith",
+                "album": "Elliott Smith",
+                "uri": "spotify:track:50NomraSF8Smui2HUE6wLQ"
+            },
+            {
+                "name": "The Biggest Lie",
+                "artist": "Elliott Smith",
+                "album": "Elliott Smith",
+                "uri": "spotify:track:3hPVY0KEabsLxgeupjs7bV"
+            },
+            {
+                "name": "Southern Belle",
+                "artist": "Elliott Smith",
+                "album": "Elliott Smith",
+                "uri": "spotify:track:2UE0bH8BiYQshqxrSpmHtn"
+            },
+            {
+                "name": "Angel In The Snow",
+                "artist": "Elliott Smith",
+                "album": "New Moon",
+                "uri": "spotify:track:7Cy8GDa9fgMatoRGFIKjg9"
+            },
+            {
+                "name": "Talking To Mary",
+                "artist": "Elliott Smith",
+                "album": "New Moon",
+                "uri": "spotify:track:2Z2k9x8eR2cgSTePICcn7P"
+            },
+            {
+                "name": "Whatever (Folk Song In C)",
+                "artist": "Elliott Smith",
+                "album": "New Moon",
+                "uri": "spotify:track:5CrMp9BViHrB30hM6gbmIx"
+            },
+            {
+                "name": "New Disaster",
+                "artist": "Elliott Smith",
+                "album": "New Moon",
+                "uri": "spotify:track:0nnj1VNSZZyfKK47EKgi7C"
+            },
+            {
+                "name": "Georgia, Georgia",
+                "artist": "Elliott Smith",
+                "album": "New Moon",
+                "uri": "spotify:track:53ic7Ay8SfhfQe4IYN8jXA"
+            },
+            {
+                "name": "Roman Candle",
+                "artist": "Elliott Smith",
+                "album": "Roman Candle",
+                "uri": "spotify:track:3zUkBorysSm42GV4akxnoB"
+            },
+            {
+                "name": "Half Right",
+                "artist": "Heatmiser",
+                "album": "Mic City Sons",
+                "uri": "spotify:track:1qSwdmDJebYJFNv1DZ7k2j"
+            },
+            {
+                "name": "Get Lucky",
+                "artist": "Heatmiser",
+                "album": "Mic City Sons",
+                "uri": "spotify:track:5PKjC9aNg0d15j8oft8Dbi"
+            },
+            {
+                "name": "Cruel Reminder",
+                "artist": "Heatmiser",
+                "album": "Mic City Sons",
+                "uri": "spotify:track:3uMqtSljyNIf6pn0XywQj0"
+            }
+        ]
+    },
+    {
+        "name": "Major Key Rock/Indie",
+        "public": true,
+        "tracks": [
+            {
+                "name": "The Adults Are Talking",
+                "artist": "The Strokes",
+                "album": "The New Abnormal",
+                "uri": "spotify:track:5ruzrDWcT0vuJIOMW7gMnW"
+            },
+            {
+                "name": "Someday",
+                "artist": "The Strokes",
+                "album": "Is This It",
+                "uri": "spotify:track:7hm4HTk9encxT0LYC0J6oI"
+            },
+            {
+                "name": "Under Cover of Darkness",
+                "artist": "The Strokes",
+                "album": "Angles",
+                "uri": "spotify:track:6u0x5ad9ewHvs3z6u9Oe3c"
+            },
+            {
+                "name": "Brooklyn Bridge To Chorus",
+                "artist": "The Strokes",
+                "album": "The New Abnormal",
+                "uri": "spotify:track:2mDYYGaGd9uXKkK2YhDA3i"
+            },
+            {
+                "name": "Bad Decisions",
+                "artist": "The Strokes",
+                "album": "The New Abnormal",
+                "uri": "spotify:track:55N8cxpE1QDoeaaNqUnoZ2"
+            },
+            {
+                "name": "Natural Born Killer",
+                "artist": "Highly Suspect",
+                "album": "The Midnight Demon Club",
+                "uri": "spotify:track:4nMUPQeTor23d8RxiiJO9W"
+            },
+            {
+                "name": "Ice Cold",
+                "artist": "Highly Suspect",
+                "album": "The Midnight Demon Club",
+                "uri": "spotify:track:5VwNXyLRoIDJ2E2XW1pLVW"
+            },
+            {
+                "name": "New California",
+                "artist": "Highly Suspect",
+                "album": "The Midnight Demon Club",
+                "uri": "spotify:track:1wSSXEeLArhJOVyuNt1NeR"
+            },
+            {
+                "name": "F**k Me Up",
+                "artist": "Highly Suspect",
+                "album": "Mister Asylum",
+                "uri": "spotify:track:0ZChHsosJo2djcuvnKFQMV"
+            },
+            {
+                "name": "You're Gonna Go Far, Kid",
+                "artist": "The Offspring",
+                "album": "Rise And Fall, Rage And Grace",
+                "uri": "spotify:track:1FMm3wG5WOhi7js35KR7Ea"
+            },
+            {
+                "name": "The Dark Of The Matinée",
+                "artist": "Franz Ferdinand",
+                "album": "Franz Ferdinand",
+                "uri": "spotify:track:6gaWfLDoeG1eoiDAVBN4i8"
+            }
+        ]
+    },
+    {
+        "name": "currents",
+        "public": false,
+        "tracks": [
+            {
+                "name": "mood ring baby",
+                "artist": "Field Medic",
+                "album": "fade into the dawn",
+                "uri": "spotify:track:3cfeJE1UxGSOdtaQPkR2nd"
+            },
+            {
+                "name": "Ghost Ship",
+                "artist": "Blur",
+                "album": "The Magic Whip",
+                "uri": "spotify:track:61JDaStnXY3vbaEjliB5WA"
+            },
+            {
+                "name": "Gagging Order",
+                "artist": "Radiohead",
+                "album": "Com Lag: 2+2=5",
+                "uri": "spotify:track:65Qe2BvSSTOEC9ElDw3JgP"
+            },
+            {
+                "name": "Dirt (2022 Remaster)",
+                "artist": "Alice In Chains",
+                "album": "Dirt (2022 Remaster)",
+                "uri": "spotify:track:2QjkH9q5Mypj6m38u7Ni9o"
+            },
+            {
+                "name": "The Dark End of the Street",
+                "artist": "James Carr",
+                "album": "You Got My Mind Messed Up",
+                "uri": "spotify:track:5vWMCGVeGxp3PEdvpDN3a0"
+            },
+            {
+                "name": "Time Consumer",
+                "artist": "Coheed and Cambria",
+                "album": "The Second Stage Turbine Blade (Re-Issue)",
+                "uri": "spotify:track:01PW4iTCvh9cUHPF0eV7H3"
+            },
+            {
+                "name": "Destroyed By Hippie Powers",
+                "artist": "Car Seat Headrest",
+                "album": "Teens Of Denial",
+                "uri": "spotify:track:4mxoJfHYvwuWCwqnZvzggL"
+            },
+            {
+                "name": "Better Than",
+                "artist": "Lake Street Dive",
+                "album": "Bad Self Portraits",
+                "uri": "spotify:track:0MH2fBfdoOl17OSbmrwClC"
+            },
+            {
+                "name": "Beacon Hill",
+                "artist": "Damien Jurado",
+                "album": "Saint Bartlett",
+                "uri": "spotify:track:7wOJhoKaSe16hjizNCs31Z"
+            },
+            {
+                "name": "Clementine",
+                "artist": "Elliott Smith",
+                "album": "Elliott Smith",
+                "uri": "spotify:track:1pTwsLvnN8xPULDGzRjnfd"
+            },
+            {
+                "name": "Lover, You Should've Come Over",
+                "artist": "Jeff Buckley",
+                "album": "Grace",
+                "uri": "spotify:track:6Jv7kjGkhY2fT4yuBF3aTz"
+            }
+        ]
+    },
+    {
+        "name": "Intro to Hardcore",
+        "public": true,
+        "tracks": [
+            {
+                "name": "Breathe Today",
+                "artist": "Flyleaf",
+                "album": "Flyleaf",
+                "uri": "spotify:track:4Ffp6uonECrVBcq8OIHe2f"
+            },
+            {
+                "name": "Letter in a Suitcase",
+                "artist": "Anarbor",
+                "album": "Love & Drugs",
+                "uri": "spotify:track:6JDMChLzb326JIKoakDFyw"
+            },
+            {
+                "name": "Hatef--k",
+                "artist": "The Bravery",
+                "album": "Stir The Blood",
+                "uri": "spotify:track:3hNfsR5FLiX6NzyqZVncQi"
+            },
+            {
+                "name": "One Hundred Sleepless Nights",
+                "artist": "Pierce The Veil",
+                "album": "Collide With The Sky",
+                "uri": "spotify:track:0XkDtl1uPwtaUKDrqrWqEq"
+            },
+            {
+                "name": "Thank You for the Venom",
+                "artist": "My Chemical Romance",
+                "album": "Three Cheers for Sweet Revenge",
+                "uri": "spotify:track:0BpKPyXhWsTaWkgXeOd1Sn"
+            },
+            {
+                "name": "Cave Song",
+                "artist": "Pretty Vicious",
+                "album": "Cave Song - EP",
+                "uri": "spotify:track:2lxqOVJzuS0s1SgulAvkav"
+            },
+            {
+                "name": "Insects Destroy",
+                "artist": "Pulley",
+                "album": "Matters",
+                "uri": "spotify:track:3h0cVQlafBKn2dHPIiCmBb"
+            },
+            {
+                "name": "sugar honey ice & tea",
+                "artist": "Bring Me The Horizon",
+                "album": "amo",
+                "uri": "spotify:track:3Ddgh4ZwVIkLx0f4WeDFmo"
+            },
+            {
+                "name": "If I Needed You There",
+                "artist": "Joyce Manor",
+                "album": "Of All Things I Will Soon Grow Tired",
+                "uri": "spotify:track:0xFTzi8fcPo62vypv7FJzz"
+            },
+            {
+                "name": "Never Give In",
+                "artist": "Black Veil Brides",
+                "album": "We Stitch These Wounds",
+                "uri": "spotify:track:786KdjucCeYyWt5GdNNWnZ"
+            },
+            {
+                "name": "A Grave Mistake",
+                "artist": "Ice Nine Kills",
+                "album": "The Silver Scream",
+                "uri": "spotify:track:2mMNBgFRyEiRoGvrdoONeq"
+            },
+            {
+                "name": "Danger - Keep Away",
+                "artist": "Slipknot",
+                "album": "Vol. 3: The Subliminal Verses",
+                "uri": "spotify:track:6zZl4RKS9pRRlQHIk4CG7A"
+            },
+            {
+                "name": "Hysteria",
+                "artist": "Muse",
+                "album": "Absolution",
+                "uri": "spotify:track:7xyYsOvq5Ec3P4fr6mM9fD"
+            },
+            {
+                "name": "This Is How I Disappear",
+                "artist": "My Chemical Romance",
+                "album": "The Black Parade",
+                "uri": "spotify:track:0rUNZQuYQvOz6A6zwyT6tM"
+            },
+            {
+                "name": "If You Think This Song Is About You, It Probably Is",
+                "artist": "Destroy Rebuild Until God Shows",
+                "album": "D.R.U.G.S.",
+                "uri": "spotify:track:4sj6Hk441YK66GxLM6M5Iz"
+            },
+            {
+                "name": "Oblivion",
+                "artist": "Royal Blood",
+                "album": "Typhoons",
+                "uri": "spotify:track:3Ye5icBka8ODjcaEQakPvZ"
+            },
+            {
+                "name": "Little Monster",
+                "artist": "Royal Blood",
+                "album": "Royal Blood",
+                "uri": "spotify:track:0LHni3bdbwZASRHf8RYlXK"
+            },
+            {
+                "name": "Saint Veronika",
+                "artist": "Billy Talent",
+                "album": "Billy Talent III",
+                "uri": "spotify:track:0d68rizMmDdlNQ75eK8c1V"
+            },
+            {
+                "name": "Fade To Black (Remastered)",
+                "artist": "Metallica",
+                "album": "Ride The Lightning (Deluxe Remaster)",
+                "uri": "spotify:track:0dqGfCMAGyDgpUAgLNOjWd"
+            },
+            {
+                "name": "Take Me Out",
+                "artist": "Franz Ferdinand",
+                "album": "Franz Ferdinand",
+                "uri": "spotify:track:6ooluO7DiEhI1zmK94nRCM"
+            },
+            {
+                "name": "Lydia",
+                "artist": "Highly Suspect",
+                "album": "Mister Asylum",
+                "uri": "spotify:track:7yoBjKO6cCnK3zV8gr1k4e"
+            }
+        ]
+    }
+]

@@ -1,55 +1,65 @@
-// const fs = require('fs');
-import data from '../testPlaylist.json';
-export function Playlists(json) {  
-  
-  //The below implementation utilize JSX which can only be run on a server
-  // let data;
-  // fetch('C:\\Users\\alecm\\Desktop\\GuessifySProj\\Client\\src\\testPlaylist.json')
-  //   .then(response => response.json())
-  //   .then(json => {
-  //       data = json;
-  //       console.log(data);
-  //   })
-  //   .catch(error => console.error('Error:', error));
-  
-  //   console.log(data);
+import React, { useState, useEffect } from "react";
+import { getAllPlaylist, getPlaylist } from "./Spotify";
 
-  //This implementation uses native JavaScript which should run on a server or in a single compile
-  // fs.readFile('C:\\Users\\alecm\\Desktop\\GuessifySProj\\Client\\src\\testPlaylist.json', 'utf-8', (err, data) => {
-  //   if (err) {
-  //       console.error('Error:', err);
-  //       return;
-  //   }
+function Playlists() {  
 
+  let [token, setToken] = useState("");
+  let [playlists, setPlaylists] = useState([]);
+  let [playlistData, setPlaylistData] = useState([]);
 
-  // let listName = jsonData.name;
-  // console.log(listName);
+  useEffect(() => {
+      setToken(window.localStorage.getItem('access_token'));
+  }, []);
 
-  // let listImgUrl = jsonData.image[0].url;
+  useEffect(() => {
+    (async () => {
+        if (token !== "") {
+            setPlaylists(await getAllPlaylist(token));
+        }
+    })();
+  }, [token]);
 
-  // let listId = jsonData.id;
+  useEffect(() => {
+    (async () => {
+      let data = [];
+      for(let playlist of playlists) {
+        let currPlaylist = await getPlaylist(token, playlist);
+        let image = await getCoverImg(currPlaylist.images[0].url);
+        data.push({name: currPlaylist.name, image})
+      }
+      setPlaylistData(data);
+    })();
+  }, [playlists]);
 
-  // });
-
-  let listName = data.name;
-  let listImg = data.images[0].url;
-  
   return (
-    <div className="Super">
-      {/* <h1>{listImg}</h1> */}
-      <header className="App-header">
-        <h1>Select a Playlist</h1>
-      </header>
+    <div>
+      <h1>Select a Playlist</h1>
 
-      <body>
-        <form>
-          <div className='lstCard'>
-            <img href={listImg} alt='Playlist Cover Image'></img>
-            <h5 className='lstName'>{listName}</h5>
-            <button className='selBtn'>Select</button>
-          </div>
-        </form>
-      </body>
+      <div className='cards'>
+        {playlistData.map((playlist, index) => {
+          return (
+            <div key={index} className='listCard'>
+              <img src={playlist.image} alt='Playlist Cover' />
+              <h5 className='listName'>{playlist.name}</h5>
+              <button className='listBtn'>Select</button>
+            </div>
+          )
+        })}
+      </div>
     </div>
   );
+
 }
+
+function getCoverImg(imgUrl){
+  return fetch(imgUrl)
+    .then(response => response.blob())
+    .then(blob => {
+      let objectURL = URL.createObjectURL(blob);
+      return objectURL; // return the URL, not an img element
+    })
+    .catch(error => console.error(error));
+}
+
+
+export default Playlists;

@@ -9,7 +9,7 @@ function SpotifyCallback(){
     let [token, setToken] = useState("");
 
     let goPlay = () => {
-        window.open("http://localhost:3000/playlistview","_self")
+        window.open("http://localhost:3000/playlists","_self")
     }
 
     useEffect(() => {
