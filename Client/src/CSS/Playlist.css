@@ -1,52 +1,61 @@
-.App-header {
-    color: #1ED760; /* Spotify Green */
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .Super {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .listCard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    margin: 20px;
-    padding: 15px;
-    width: 200px;
-    height: 300px;
-    border-radius: 10px;
-    background-color: #121212; /* Spotify Black */
-    color: #ffffff; /* White */
-  }
-  
-  .listCard img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-  }
-  
-  .listCard .listName {
-    margin-top: 10px;
-    text-align: center;
-  }
-  
-  .listCard button {
-    margin-top: auto;
-    padding: 10px 20px;
-    background-color: #1ED760; /* Spotify Green */
-    color: #ffffff; /* White */
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .listCard button:hover {
-    background-color: #1DD05D; /* Slightly Lighter Green */
-  }
-  
+.Super {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #696464;
+  color: white; /* Spotify Green */
+}
+
+.Super h1 {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;  
+  justify-content: center;
+  gap: 20px; /* Adjust this to control space between cards */
+  width: 100%;
+}
+
+.listCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  width: 200px;
+  min-height: 300px; /* Adjust this to control the minimum height of cards */
+  border-radius: 10px;
+  background-color: #121212; /* Spotify Black */
+  color: #ffffff; /* White */
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75); /* Optional: Adds a shadow to create depth */
+}
+
+.listCard img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.listName {
+  margin: 10px 0; /* Space out the playlist name from the image and button */
+  text-align: center;
+}
+
+.listBtn {
+  padding: 10px 20px;
+  align-self: center; /* Centers the button horizontally in the card */
+  background-color: #1ED760; /* Spotify Green */
+  color: #ffffff; /* White */
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.listBtn:hover {
+  background-color: #1DD05D; /* Slightly Lighter Green */
+}

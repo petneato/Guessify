@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getAllPlaylist, getPlaylist } from "./Spotify";
+import '../CSS/Playlist.css'
 
 function Playlists() {  
 
@@ -32,13 +33,13 @@ function Playlists() {
   }, [playlists]);
 
   return (
-    <div>
+    <div className='Super'>
       <h1>Select a Playlist</h1>
 
       <div className='cards'>
         {playlistData.map((playlist, index) => {
           return (
-            <div key={index} className='listCard'>
+            <div key={index} className='listCard' >
               <img src={playlist.image} alt='Playlist Cover' />
               <h5 className='listName'>{playlist.name}</h5>
               <button className='listBtn'>Select</button>
