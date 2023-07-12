@@ -20,16 +20,28 @@ function Playlists() {
     })();
   }, [token]);
 
+  // useEffect(() => {
+  //   (async () => {
+  //     let data = [];
+  //     for(let playlist of playlists) {
+  //       let currPlaylist = await getPlaylist(token, playlist);
+  //       let image = currPlaylist.images[0].url
+  //       data.push({name: currPlaylist.name, image})
+  //     }
+  //     setPlaylistData(data);
+  //   })();
+  // }, [playlists]);
+
   useEffect(() => {
-    (async () => {
-      let data = [];
-      for(let playlist of playlists) {
-        let currPlaylist = await getPlaylist(token, playlist);
-        let image = await getCoverImg(currPlaylist.images[0].url);
-        data.push({name: currPlaylist.name, image})
-      }
-      setPlaylistData(data);
-    })();
+    console.log(playlists)
+
+    let data = [];
+    for (let playlist of playlists) { 
+      let image = playlist.images[0].url
+      data.push({name: playlist.name, image})
+    }
+
+    setPlaylistData(data)
   }, [playlists]);
 
   return (
@@ -47,20 +59,21 @@ function Playlists() {
           )
         })}
       </div>
+
     </div>
   );
 
 }
 
-function getCoverImg(imgUrl){
-  return fetch(imgUrl)
-    .then(response => response.blob())
-    .then(blob => {
-      let objectURL = URL.createObjectURL(blob);
-      return objectURL; // return the URL, not an img element
-    })
-    .catch(error => console.error(error));
-}
+// function getCoverImg(imgUrl){
+//   return fetch(imgUrl)
+//     .then(response => response.blob())
+//     .then(blob => {
+//       let objectURL = URL.createObjectURL(blob);
+//       return objectURL; // return the URL, not an img element
+//     })
+//     .catch(error => console.error(error));
+// }
 
 
 export default Playlists;

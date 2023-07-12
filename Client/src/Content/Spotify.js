@@ -104,22 +104,40 @@ export async function getPlaylist(accessToken, playlistURI){
     return await response.json();
 }
 
-export async function getAllPlaylist(acessToken){
+export async function getAllPlaylist(acessToken) {
+    let offset = 0;
+    let allPlaylists = [];
 
-    const response = await fetch('https://api.spotify.com/v1/me/playlists/', {
-        headers: {
-            Authorization: 'Bearer ' + acessToken
+    while(true) {
+        try {
+            const response = await fetch(`https://api.spotify.com/v1/me/playlists?limit=50&offset=${offset}`, {
+                headers: {
+                    Authorization: 'Bearer ' + acessToken
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            allPlaylists = [...allPlaylists, ...data.items]; // Merging the fetched playlists
+
+            // If there are no more playlists, break the loop
+            if (!data.next) {
+                break;
+            }
+
+            // If there are more playlists, increment the offset by 50 for the next call
+            offset += 50;
+
+        } catch (error) {
+            console.error(`Fetch Error: ${error}`);
+            return [];
         }
-    })
-    .then(response => response.json())
-    .then(data => {
-        let playlistIds = data.items.map(playlist => playlist.id);
-        return playlistIds;
-    })
-    .catch(error => {
-        console.error(error)
-        return [];
-    });
-
-    return response;
+    }
+    return allPlaylists;
 }
+
+
+  
