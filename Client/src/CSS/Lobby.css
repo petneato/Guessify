@@ -1,0 +1,62 @@
+.lobby-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #282828;
+    height: 100vh;
+    color: #1ED760;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.lobby-button {
+    padding: 1em;
+    margin: 1em;
+    background-color: #1ED760;
+    border: none;
+    border-radius: 24px;
+    color: #282828;
+    font-weight: bold;
+    cursor: pointer;
+    flex-basis: 45%;
+}
+
+.lobby-input {
+    padding: 0.5em;
+    margin: 0.5em;
+    color: #1ED760;
+    background: #282828;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.counter-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.counter-button {
+    padding: 1em;
+    font-size: 1.5em;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+    .lobby-button {
+    flex-basis: 100%;
+    }
+}

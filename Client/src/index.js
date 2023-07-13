@@ -4,7 +4,8 @@ import './index.css';
 import View from './Content/View';
 import SpotifyCallback from './Content/SpotifyCallback';
 import Playlists from './Content/Playlists';
-import PlaylistV2 from './Content/PlaylistV2';
+import PlaylistV2 from './Content/PlaylistV2'
+import Lobby from './Content/Lobby'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -24,9 +25,10 @@ root.render(
         <Route exact path="/playlists">
           <Playlists />
         </Route>
+        <Route exact path="/lobby">
+          <Lobby />
+        </Route>
       </Switch>
-      
     </Router>
-    
   </React.StrictMode>
 );
