@@ -1,6 +1,6 @@
 
 var client_id = 'd9f97736297e4a039202cb31e162c0ef';
-var redirect_uri = 'http://localhost:3000/callback';
+var redirect_uri = 'https://guessify-467fb.web.app/callback';
 
 async function generateCodeChallenge(codeVerifier) {
     function base64encode(string) {

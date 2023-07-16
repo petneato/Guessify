@@ -9,7 +9,8 @@ function SpotifyCallback(){
     let [token, setToken] = useState("");
 
     let goPlay = () => {
-        window.open("http://localhost:3000/playlists","_self")
+        // window.open("http://localhost:3000/playlists","_self")
+        window.open("https://guessify-467fb.web.app/playlists","_self")
     }
 
     useEffect(() => {
