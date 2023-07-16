@@ -60,7 +60,7 @@ function Playlists() {
       return; // Don't do anything if no playlists are selected
     }
     window.localStorage.setItem('tracks', selectedPlaylists);
-    window.open("http://localhost:3000/lobby","_self");
+    window.open("https://guessify-467fb.web.app/lobby","_self");
   }
   
 
