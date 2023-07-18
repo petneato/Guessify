@@ -1,11 +1,45 @@
 import React, { useState } from "react";
 import "../CSS/Lobby.css";
+import { initializeApp } from 'firebase/app';
+import { getAuth, signInAnonymously } from 'firebase/auth';
+import { getDatabase, ref, set, push, child, get } from 'firebase/database';
+
 
 function LobbyCreation() {
   const [gameMode, setGameMode] = useState("");
   const [lobbyCode, setLobbyCode] = useState("");
+  const [tracks, setTracks] = useState(window.localStorage.getItem('tracks'));
   const [rounds, setRounds] = useState(1);
   const [songsPerPlayer, setSongsPerPlayer] = useState(1);
+
+  const createGame = async (name) => {
+    
+    const auth = getAuth();
+    const res = await signInAnonymously(auth);
+    if (!res) {
+      console.log('Sign in failed');
+      return;
+    }
+  
+    const db = getDatabase();
+  
+    const gameRef = ref(db, `games/${name}`);
+    const snapshot = await get(gameRef);
+  
+    if (snapshot.exists()) {
+      console.log('Game already exists');
+      return;
+    }
+  
+    await set(gameRef, { name: name, creator: res.user.uid, tracks: [] });
+  
+    localStorage.setItem("gameID", name);
+    localStorage.setItem("uid", res.user.uid);
+  
+    console.log('No errors');
+}
+
+  
 
   const renderCreateGame = () => (
     <div>
@@ -29,8 +63,14 @@ function LobbyCreation() {
         <p>{songsPerPlayer}</p>
         <button className="counter-button" onClick={() => setSongsPerPlayer(songsPerPlayer + 1)}>+</button>
       </div>
+      <button className="lobby-button" onClick={async () => {
+          console.log('button clicked');
+          const result = await createGame(lobbyCode);
+          console.log('result');
+          alert(result); // Notify the user about the creation result
+      }}>Create Game</button>
     </div>
-  );
+  );  
 
   const renderJoinGame = () => (
     <div>

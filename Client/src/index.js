@@ -6,6 +6,7 @@ import SpotifyCallback from './Content/SpotifyCallback';
 import Playlists from './Content/Playlists';
 import PlaylistV2 from './Content/PlaylistV2'
 import Lobby from './Content/Lobby'
+import Game from './Content/Game'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 
@@ -50,6 +51,9 @@ root.render(
         </Route>
         <Route exact path="/lobby">
           <Lobby />
+        </Route>
+        <Route exact path="/game">
+          <Game />
         </Route>
       </Switch>
     </Router>
