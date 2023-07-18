@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../CSS/Lobby.css";
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInAnonymously } from 'firebase/auth';
-import { getDatabase, ref, set, push, child, get } from 'firebase/database';
+import { getDatabase, ref, set, push, child, remove, onValue, update, get } from 'firebase/database';
 
 
 function LobbyCreation() {
@@ -18,7 +18,7 @@ function LobbyCreation() {
     const res = await signInAnonymously(auth);
     if (!res) {
       console.log('Sign in failed');
-      return;
+      return 'Sign in failed';
     }
   
     const db = getDatabase();
@@ -28,15 +28,16 @@ function LobbyCreation() {
   
     if (snapshot.exists()) {
       console.log('Game already exists');
-      return;
+      return 'Game already exists';
     }
   
-    await set(gameRef, { name: name, creator: res.user.uid, tracks: [] });
+    await set(gameRef, { name: name, creator: res.user.uid, tracks: tracks });
   
     localStorage.setItem("gameID", name);
     localStorage.setItem("uid", res.user.uid);
   
     console.log('No errors');
+    return 'No errors';
 }
 
   
