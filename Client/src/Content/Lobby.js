@@ -31,11 +31,18 @@ function LobbyCreation() {
       return 'Game already exists';
     }
   
-    await set(gameRef, { name: name, creator: res.user.uid, tracks: tracks });
-  
-    localStorage.setItem("gameID", name);
-    localStorage.setItem("uid", res.user.uid);
-  
+    await set(gameRef, { name: name, creator: res.user.uid, rounds });
+    const creatorTracksRef = child(ref(db, 'creator'), 'tracks')
+
+    set(creatorTracksRef, tracks)
+
+    const usersRef = child(ref(db), 'Users')
+    
+
+    let roundsRef = [];
+    for (let i = 0; i < rounds; i++) {
+      roundsRef.push(child())
+    }
     console.log('No errors');
     return 'No errors';
 }
