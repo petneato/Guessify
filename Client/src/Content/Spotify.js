@@ -1,6 +1,8 @@
-
 var client_id = 'd9f97736297e4a039202cb31e162c0ef';
 var redirect_uri = 'https://guessify-467fb.web.app/callback';
+
+// var client_id = '0b0bea5cfeed47ee881242f0a154bbc9';
+// var redirect_uri = 'http://localhost:3000/callback';
 
 async function generateCodeChallenge(codeVerifier) {
     function base64encode(string) {
@@ -136,7 +138,19 @@ export async function getAllPlaylist(acessToken) {
             return [];
         }
     }
+    
     return allPlaylists;
+}
+
+export async function getTracks(accessToken, track){
+
+    const response = await fetch(track, {
+        headers: {
+            Authorization: 'Bearer ' + accessToken
+        }
+    });
+
+    return await response.json();
 }
 
 

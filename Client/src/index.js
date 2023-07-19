@@ -7,6 +7,7 @@ import Playlists from './Content/Playlists';
 import PlaylistV2 from './Content/PlaylistV2'
 import Lobby from './Content/Lobby'
 import Game from './Content/Game'
+import Test from './Content/Test'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 
@@ -54,6 +55,9 @@ root.render(
         </Route>
         <Route exact path="/game">
           <Game />
+        </Route>
+        <Route exact path='/test'>
+          <Test />
         </Route>
       </Switch>
     </Router>
