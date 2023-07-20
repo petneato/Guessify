@@ -34,7 +34,7 @@ export function loginPKCE() {
     window.localStorage.setItem("codeVerifier", codeVerifier);
     generateCodeChallenge(codeVerifier).then(codeChallenge => {
         let state = generateRandomString(16);
-        let scope = 'user-read-private user-read-email';
+        let scope = 'playlist-read-private user-read-private user-read-email user-read-playback-state user-modify-playback-state streaming';
 
         window.localStorage.setItem('code_verifier', codeVerifier);
 
