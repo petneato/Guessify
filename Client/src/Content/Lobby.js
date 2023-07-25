@@ -41,18 +41,42 @@ function LobbyCreation() {
     // set game name and creator
     await set(gameRef, { name: name, creator: res.user.uid });
   
+    // // set tracks as a child node
+    // const creatorRef = child(gameRef, 'creator');
+
+    // //set uID of creator
+    // const uID = child(creatorRef, 'uID')
+    // await set(uID, res.user.uid)
+
+    // //Set the tracks for the creator
+    // for(let i = 0; i < tracks.length; i++){
+    //   let trackRef = child(creatorRef, `track${i+1}`);
+    //   await set(trackRef, tracks[i])
+    // }
+
+    // create Users node under the game
+    const usersRef = child(gameRef, 'users');
+
+    // Check how many children (users) there are currently
+    let count = 0;
+    const usersSnapshot = await get(usersRef);
+    if (usersSnapshot.exists()) {
+      count = Object.keys(usersSnapshot.val()).length;
+    }
+  
+    // Increment the count and use it as the new user ID
+    let userRef = child(usersRef, `uID${count + 1}`);
+    await set(userRef, res.user.uid);
+
     // set tracks as a child node
-    const creatorRef = child(gameRef, 'creator');
-
-    //set uID of creator
-    const uID = child(creatorRef, 'uID')
-    await set(uID, res.user.uid)
-
-    //Set the tracks for the creator
+    const creatorRef = child(gameRef, res.user.uid);
     for(let i = 0; i < tracks.length; i++){
       let trackRef = child(creatorRef, `track${i+1}`);
       await set(trackRef, tracks[i])
     }
+    
+    console.log("User added to the game");
+    
 
     // set rounds as a child node with three more branches
     const roundsRef = child(gameRef, 'rounds');
@@ -150,8 +174,6 @@ function LobbyCreation() {
       <button className="lobby-button" onClick={async () => {
           console.log('button clicked');
           const result = await createGame(lobbyCode);
-          console.log('result');
-          alert(result); // Notify the user about the creation result
       }}>Create Game</button>
     </div>
   );  
