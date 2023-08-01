@@ -123,7 +123,7 @@ export async function getAllPlaylist(acessToken) {
             }
 
             const data = await response.json();
-            allPlaylists = [...allPlaylists, ...data.items]; // Merging the fetched playlists
+            allPlaylists.concat(data.items); // Merging the fetched playlists
 
             // If there are no more playlists, break the loop
             if (!data.next) {
