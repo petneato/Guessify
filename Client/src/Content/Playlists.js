@@ -16,22 +16,22 @@ function Playlists() {
 
   useEffect(() => {
     (async () => {
-        if (token !== "") {
+        if (token) {
             setPlaylists(await getAllPlaylist(token));
         }
     })();
   }, [token]);
 
   useEffect(() => {
-    console.log(playlists)
-
-    let data = [];
-    for (let playlist of playlists) { 
-      let image = playlist.images[0].url
-      data.push({name: playlist.name, image, tracks: playlist.tracks.href})
+    if(playlists) {
+      let data = [];
+      for (let playlist of playlists) {
+        let image;
+        try{ image = playlist.images[0].url; } catch{}
+        data.push({name: playlist.name, image: image, tracks: playlist.tracks.href});
+      }
+      setPlaylistData(data)
     }
-  
-    setPlaylistData(data)
   }, [playlists]);
 
   useEffect(() => {
@@ -60,10 +60,8 @@ function Playlists() {
       return; // Don't do anything if no playlists are selected
     }
     window.localStorage.setItem('tracks', selectedPlaylists);
-    window.open("https://guessify-467fb.web.app/lobby","_self");
-    // window.open('http://localhost:3000/lobby', '_self')
+    window.location.href = "lobby"
   }
-  
 
   return (
     <div className='SuperC'>

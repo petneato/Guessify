@@ -7,11 +7,9 @@ function SpotifyCallback(){
 
     let [user, setUser] = useState("");
     let [token, setToken] = useState("");
+    let [image, setImage] = useState("");
 
-    let goPlay = () => {
-        window.open("https://guessify-467fb.web.app/playlists","_self")
-        // window.open("http://localhost:3000/playlists","_self")
-    }
+    let goPlay = () => { window.location.href = "playlists"; }
 
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
@@ -31,20 +29,21 @@ function SpotifyCallback(){
     useEffect(() => {
         
         (async () => {
-            if(token != ""){
+            if(token){
                 setUser(await getProfile(token));
             }
         })();
 
     }, [token])
 
-    let image;
-    
-    try {
-        image = user.images[0].url;
-    } catch {
-        image = logo
-    }
+    useEffect(() => {
+        console.log(image)
+        if(image){
+            setImage(user.images[1].url);
+        } else {
+            setImage(logo)
+        }
+    }, [user]);
 
     return(
         <div className="Super">
