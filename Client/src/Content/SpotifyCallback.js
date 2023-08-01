@@ -39,9 +39,9 @@ function SpotifyCallback(){
     useEffect(() => {
         console.log(image)
         if(image){
-            setImage(user.images[1].url);
+            try {setImage( user.images[1].url ); } catch {}
         } else {
-            setImage(logo)
+            setImage(logo);
         }
     }, [user]);
 
