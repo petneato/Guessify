@@ -100,7 +100,7 @@ function Game() {
 
     // Check if current user is the creator of the game
     const runIfCreator = async () => {
-        const creatorIDRef = ref(db, code + '/creator/uID');
+        const creatorIDRef = ref(db, code + '/creator');
     
         get(creatorIDRef).then((snapshot) => {
             if (snapshot.exists()) {
@@ -214,8 +214,9 @@ function Game() {
         });
 
     }, []);
-    
-    
+    runIfCreator();
+    console.log("game started :", gameStarted);
+    console.log("i am creator :", isCreator);
     // Render the game interface
     return (
         <div className='super'>
