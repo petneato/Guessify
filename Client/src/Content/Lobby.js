@@ -89,8 +89,7 @@ function LobbyCreation() {
       console.log('No errors');
       window.localStorage.setItem('uID', res.user.uid);
       window.localStorage.setItem('code', name);
-      window.open('https://guessify-467fb.web.app/game', '_self');
-      // window.open('http://localhost:3000/game', '_self')
+      window.location.href = "game";
       return;
   }
 

@@ -37,7 +37,6 @@ export function loginPKCE() {
         let scope = 'playlist-read-private user-read-private user-read-email user-read-playback-state user-modify-playback-state streaming';
 
         window.localStorage.setItem('code_verifier', codeVerifier);
-        console.log(redirect_uri);
 
         let args = new URLSearchParams({
             response_type: 'code',
@@ -48,11 +47,14 @@ export function loginPKCE() {
             code_challenge_method: 'S256',
             code_challenge: codeChallenge
         });
+        
         window.location = 'https://accounts.spotify.com/authorize?' + args;
     });
 }
 
 export function getLoginToken(code, codeVerifier) {
+
+    redirect_uri = window.location.origin + "/callback";
 
     let body = new URLSearchParams({
         grant_type: 'authorization_code',
@@ -152,6 +154,3 @@ export async function getTracks(accessToken, track){
 
     return await response.json();
 }
-
-
-  
