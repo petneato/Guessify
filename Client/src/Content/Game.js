@@ -30,6 +30,7 @@ function Game() {
     const [res, setRes] = useState();
     const [test, setTest] = useState();
     const [isCreator, setIsCreator] = useState(false);
+    const [gamePlaylistID, setGamePlaylistID] = useState();
 
     // Firebase database instance
     const db = getDatabase();
