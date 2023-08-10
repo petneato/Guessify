@@ -201,11 +201,12 @@ function Game() {
         });
     
         const data = await response.json();
-    
         if (response.ok) {
+            setGamePlaylistID(data.id);
+
             console.log(`Playlist created with ID: ${data.id}`);
 
-            await addTracksToPlaylist(data.id, tracks);
+            // await addTracksToPlaylist(data.id, tracks);
         } else {
             console.error(`Error creating playlist: ${data.error.message}`);
         }
@@ -233,13 +234,26 @@ function Game() {
     const button = async () => {
         if (!gameStarted) {
             await startGame();
+        } else if ( !gamePlaylistID ) {
+            await getRandom();
+            const allTracks = await interleaveTracks(gamePlaylists);
+            createPlaylist(formattedDate+ " lobby code: " + code, 'Guessify Playlist for given date', allTracks);        
+            setTest(allTracks);
+        } else {
+
+            console.log("game playlist already created id: " + gamePlaylistID);
+            const allTracks = interleaveTracks(gamePlaylists);
+            addTracksToPlaylist(gamePlaylistID, allTracks);
+
         }
-        await getRandom();
-        const allTracks = await interleaveTracks(gamePlaylists);
-        createPlaylist(formattedDate + ' Guessify', 'Guessify Playlist for given date', allTracks);        
-        setTest(allTracks);
     };
     
+    useEffect(() => {
+
+        const allTracks = interleaveTracks(gamePlaylists);
+        addTracksToPlaylist(gamePlaylistID, allTracks)
+        
+    }, [gamePlaylistID]);
 
     // Effect hook to initialize Firebase and other settings, and set up user listener
     useEffect(() => {
@@ -259,6 +273,7 @@ function Game() {
     useEffect(() => {
         console.log('Game');
         console.log(gamePlaylists);
+        // console.log("game playlist id: "+gamePlaylistID);
     }, [gamePlaylists]);
 
     // Render the game interface
