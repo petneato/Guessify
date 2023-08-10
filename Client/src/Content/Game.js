@@ -3,15 +3,27 @@ import { getTracks } from "./Spotify"
 import "../CSS/Game.css";
 import { getAuth, signInAnonymously } from 'firebase/auth';
 import { getDatabase, ref, set, push, child, remove, onValue, update, get, onChildAdded } from 'firebase/database';
-import SpotifyPlayer from 'react-spotify-web-playback'
+import SpotifyPlayer from 'react-spotify-web-playback';
+import defaultImage from '../Images/PP.png';
+
 
 function Game() {
     // Define states
+    let profileImage = defaultImage;
+    if (window.localStorage.getItem('profileImage')) {
+        profileImage = window.localStorage.getItem('profileImage');
+    }
+
+    const profileId = window.localStorage.getItem('profileId');
+
+    const currentDate = new Date();
+    const formattedDate = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}-${String(currentDate.getDate()).padStart(2, '0')}`;
+
     const [token, setToken] = useState('');
     const [uID, setUID] = useState('');
     const [users, setUsers] = useState({});
     const [gameref, setGameref] = useState();
-    const [gamePlaylists, setGamePlaylists] = useState([]);
+    const [gamePlaylists, setGamePlaylists] = useState({});
     const [gameStarted, setGameStarted] = useState(false);
     const [tracks, setTracks] = useState([]);
     const [auth, setAuth] = useState();
@@ -57,10 +69,10 @@ function Game() {
         })();
     
         song = await song; // This line will wait for the promise to resolve and then assign the resolved value to the song variable
-        console.log(song); // This line will print the resolved value to the console
+        // console.log(song); // This line will print the resolved value to the console
 
         let uris = song.items.map(item => item.track.uri);
-        console.log(uris);
+        // console.log(uris);
 
         return uris;
     }
@@ -81,16 +93,6 @@ function Game() {
             }).catch((error) => {
                 console.error(error);
             });
-
-            get(creatorRef).then((snapshot) => {
-                if (snapshot.exists()) {
-                    console.log(snapshot.val());
-                } else {
-                  console.log("No data available");
-                }
-            }).catch((error) => {
-                console.error(error);
-            });
               
         });
 
@@ -98,25 +100,6 @@ function Game() {
         
     }
 
-    // Check if current user is the creator of the game
-    const runIfCreator = async () => {
-        const creatorIDRef = ref(db, code + '/creator');
-    
-        get(creatorIDRef).then((snapshot) => {
-            if (snapshot.exists()) {
-                if (uID === snapshot.val()) {
-                    console.log("Running the function because the user is the creator");
-                    setIsCreator(true);
-                }
-            } else {
-                console.log("No data available");
-            }
-        }).catch((error) => {
-            console.error(error);
-        });
-    }    
-
-    // Randomly select songs from the user's playlists for the game
     const getRandomHelper = async (numSongs) => {
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
@@ -127,16 +110,16 @@ function Game() {
     
         let selectedSongs = {};
     
-        for (let user of tracks) {
+        const promises = tracks.map(async user => {
             let userPlaylists = Object.values(user.playlists);
             shuffleArray(userPlaylists);
     
             selectedSongs[user.user] = [];
     
-            for (let i = 0; i < userPlaylists.length; i++) {
-                let songs = await getHref(userPlaylists[i]);
+            for (let playlist of userPlaylists) {
+                let songs = await getHref(playlist);
                 shuffleArray(songs);
-                
+    
                 while (songs.length > 0 && selectedSongs[user.user].length < numSongs) {
                     selectedSongs[user.user].push(songs.pop());
                 }
@@ -145,66 +128,123 @@ function Game() {
                     break;
                 }
             }
-        }
+        });
+    
+        await Promise.all(promises);
     
         return selectedSongs;
     }
     
-
-    // Determine how many songs to select based on the number of rounds
     const getRandom = async () => {
-        function getRandomInt(min, max) {
-            min = Math.ceil(min);
-            max = Math.floor(max);
-            return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+        try {
+            const numRoundsSnapshot = await get(ref(db, code + '/rounds'));
+            const numSongsSnapshot = await get(ref(db, code + '/songs'));
+    
+            if (!numRoundsSnapshot.exists() || !numSongsSnapshot.exists()) {
+                console.log("No data available");
+                return;
+            }
+    
+            const numRounds = numRoundsSnapshot.val();
+            const numSongs = numSongsSnapshot.val();
+    
+            const result = await getRandomHelper(numSongs);
+            setGamePlaylists(result);
+            // console.log('results');
+            // console.log(result);
+    
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const addTracksToPlaylist = async (playlistId, tracks) => {
+        const endpoint = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+        const requestBody = {
+            uris: tracks
+        };
+    
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        });
+    
+        const data = await response.json();
+    
+        if (response.ok) {
+            console.log(`Tracks added to playlist with ID: ${playlistId}`);
+        } else {
+            console.error(`Error adding tracks to playlist: ${data.error.message}`);
+        }
+    }
+
+    const createPlaylist = async (name, description, tracks) => {
+        const endpoint = `https://api.spotify.com/v1/users/${profileId}/playlists`;
+        const requestBody = {
+            name: name,
+            description: description,
+            public: true
+        };
+    
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        });
+    
+        const data = await response.json();
+    
+        if (response.ok) {
+            console.log(`Playlist created with ID: ${data.id}`);
+
+            await addTracksToPlaylist(data.id, tracks);
+        } else {
+            console.error(`Error creating playlist: ${data.error.message}`);
+        }
+    }
+    
+    const interleaveTracks = (playlists) => {
+        let result = [];
+        let i = 0;
+        let added = true;
+    
+        while (added) {
+            added = false;
+            for (let userTracks of Object.values(playlists)) {
+                if (i < userTracks.length) {
+                    result.push(userTracks[i]);
+                    added = true;
+                }
+            }
+            i++;
         }
     
-        const numRoundsRef = ref(db, code + '/rounds')
-        const songsRef = ref(db, code + '/songs')
-    
-        let numSongs;
-        let numRounds;
-    
-        get(numRoundsRef).then((snapshot) => {
-            if (snapshot.exists()) {
-                numRounds = snapshot.val();
-            } else {
-              console.log("No data available");
-            }
-        }).catch((error) => {
-            console.error(error);
-        });
-    
-        get(songsRef).then((snapshot) => {
-            if (snapshot.exists()) {
-                numSongs = snapshot.val();
-                getRandomHelper(numSongs).then(result => console.log(result)); // Moved inside .then
-            } else {
-              console.log("No data available");
-            }
-        }).catch((error) => {
-            console.error(error);
-        });
-    }
-    
-    const loadRound = async () => {
-
+        return result;
     }
 
-    const createPlaylist = async () => {
-
-    }
-
-    const setScore = async () => {
-
-    }
+    const button = async () => {
+        if (!gameStarted) {
+            await startGame();
+        }
+        await getRandom();
+        const allTracks = await interleaveTracks(gamePlaylists);
+        createPlaylist(formattedDate + ' Guessify', 'Guessify Playlist for given date', allTracks);        
+        setTest(allTracks);
+    };
+    
 
     // Effect hook to initialize Firebase and other settings, and set up user listener
     useEffect(() => {
         init();
         setUID(window.localStorage.getItem('uID'));
         setToken(window.localStorage.getItem('access_token'));
-        runIfCreator();
 
         // Attach an asynchronous callback to read the data at our posts reference
         onValue(usersRef, (snapshot) => {
@@ -214,27 +254,30 @@ function Game() {
         });
 
     }, []);
-    runIfCreator();
-    console.log("game started :", gameStarted);
-    console.log("i am creator :", isCreator);
+
+    useEffect(() => {
+        console.log('Game');
+        console.log(gamePlaylists);
+    }, [gamePlaylists]);
+
     // Render the game interface
     return (
         <div className='super'>
             <SpotifyPlayer
                 token={token}
-                uris={['spotify:artist:6HQYnRM4OzToCYPpVBInuU']}
+                uris={test}
             />
             <h2 className='lobbyName'>Lobby Code: {code}</h2>
             <div className="Gameplay">
                 {Object.keys(users).map((user) => (
                     <div className='Card' key={user}>
                         <h5>{user}</h5>
+                        {profileImage && <img src={profileImage} alt="Profile" className="profileImage" />}
                         <button className='voteBtn'>Vote</button>
                     </div>
                 ))}
                 <div className="buttonContainer">
-                    {isCreator && !gameStarted && <button onClick={startGame} className='startGame'>Start Game</button>}
-                    <button className='lockIn'>Lock In</button>
+                    <button className='lockIn' onClick={button}>Generate Playlist</button>
                 </div>
             </div>
         </div>

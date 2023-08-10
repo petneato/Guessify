@@ -10,11 +10,12 @@
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
+    text-align: center;
 }
 
 .lobby-button {
-    padding: 1em;
-    margin: 1em;
+    padding: 1.2em; /* Increased padding */
+    margin: 1.5em; /* Increased margin */
     background-color: #1ED760;
     border: none;
     border-radius: 24px;
@@ -22,16 +23,26 @@
     font-weight: bold;
     cursor: pointer;
     flex-basis: 45%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+    transition: transform 0.2s, box-shadow 0.2s; /* Added transition */
+}
+
+.lobby-button:hover {
+    transform: translateY(-5px); /* Raised effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Darker shadow on hover */
 }
 
 .lobby-input {
-    padding: 0.5em;
-    margin: 0.5em;
+    padding: 0.7em; /* Increased padding */
+    margin: 0.8em; /* Increased margin */
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
     color: #1ED760;
-    background: #282828;
-    border: none;
+    background: #333333; /* Darker background for contrast */
+    border: 2px solid white; /* Added border */
     border-radius: 3px;
     width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added shadow */
 }
 
 .counter-container {
@@ -41,11 +52,24 @@
 }
 
 .counter-button {
-    padding: 1em;
+    padding: 0.5em 1.5em; /* Adjusted padding to make buttons thinner and wider */
     font-size: 1.5em;
     text-align: center;
-    width: 70px; /* Adjust this value to your preference */
-    height: 50px;
+    background-color: #1ED760;
+    border: none;
+    border-radius: 24px;
+    color: #282828;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s; /* Added transition */
+    display: flex; /* Added to help center the text */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+}
+
+
+.counter-button:hover {
+    transform: translateY(-3px); /* Raised effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
 }
 
 .button-container {
@@ -57,6 +81,6 @@
 
 @media (max-width: 600px) {
     .lobby-button {
-    flex-basis: 100%;
+        flex-basis: 100%;
     }
 }

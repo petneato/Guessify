@@ -31,6 +31,69 @@ function Test() {
     return null; // replace this with your actual component rendering
 }
 
+const userId = 'YOUR_SPOTIFY_USER_ID'; // Replace with your Spotify user ID
+const token = 'YOUR_SPOTIFY_ACCESS_TOKEN'; // Replace with your Spotify access token
+
+const createPlaylist = async (name, description, tracks) => {
+    const endpoint = `https://api.spotify.com/v1/users/${userId}/playlists`;
+    const requestBody = {
+        name: name,
+        description: description,
+        public: true
+    };
+
+    const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+        console.log(`Playlist created with ID: ${data.id}`);
+        await addTracksToPlaylist(data.id, tracks);
+    } else {
+        console.error(`Error creating playlist: ${data.error.message}`);
+    }
+}
+
+const addTracksToPlaylist = async (playlistId, tracks) => {
+    const endpoint = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+    const requestBody = {
+        uris: tracks
+    };
+
+    const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+        console.log(`Tracks added to playlist with ID: ${playlistId}`);
+    } else {
+        console.error(`Error adding tracks to playlist: ${data.error.message}`);
+    }
+}
+
+const tracks = [
+    'spotify:track:TRACK_ID_1', // Replace with actual track ID
+    'spotify:track:TRACK_ID_2', // Replace with actual track ID
+    // ... add more track URIs as needed
+];
+
+createPlaylist('My New Playlist', 'A description for my new playlist.', tracks);
+
+
 export default Test;
 
     // useEffect(() => {

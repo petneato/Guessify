@@ -9,6 +9,7 @@ function LobbyCreation() {
 
   let trackS = window.localStorage.getItem('tracks')
   const tracksA = trackS.split(",");
+  const profileName = window.localStorage.getItem('profileName');
   const [gameMode, setGameMode] = useState("");
   const [lobbyCode, setLobbyCode] = useState("");
   const [tracks, setTracks] = useState([]);
@@ -58,14 +59,15 @@ function LobbyCreation() {
     const usersRef = child(gameRef, 'users');
 
     // Check how many children (users) there are currently
-    let count = 0;
-    const usersSnapshot = await get(usersRef);
-    if (usersSnapshot.exists()) {
-      count = Object.keys(usersSnapshot.val()).length;
-    }
+    // let count = 0;
+    // const usersSnapshot = await get(usersRef);
+    // if (usersSnapshot.exists()) {
+    //   count = Object.keys(usersSnapshot.val()).length;
+    // }
   
     // Increment the count and use it as the new user ID
-    let userRef = child(usersRef, `uID${count + 1}`);
+    // let userRef = child(usersRef, `uID${count + 1}`);
+    let userRef = child(usersRef, profileName);
     await set(userRef, res.user.uid);
 
     // set tracks as a child node
@@ -119,14 +121,15 @@ function LobbyCreation() {
     const usersRef = child(gameRef, 'users');
   
     // Check how many children (users) there are currently
-    let count = 0;
-    const usersSnapshot = await get(usersRef);
-    if (usersSnapshot.exists()) {
-      count = Object.keys(usersSnapshot.val()).length;
-    }
+    // let count = 0;
+    // const usersSnapshot = await get(usersRef);
+    // if (usersSnapshot.exists()) {
+    //   count = Object.keys(usersSnapshot.val()).length;
+    // }
   
     // Increment the count and use it as the new user ID
-    let userRef = child(usersRef, `uID${count + 1}`);
+    // let userRef = child(usersRef, `uID${count + 1}`);
+    let userRef = child(usersRef, profileName);
     await set(userRef, res.user.uid);
     
     console.log("User added to the game");
@@ -149,7 +152,7 @@ function LobbyCreation() {
 
   const renderCreateGame = () => (
     <div>
-      <h2>Create a new game</h2>
+      <h2>New Game</h2>
       <input
         className="lobby-input"
         type="text"
@@ -195,7 +198,7 @@ function LobbyCreation() {
 
   return (
     <div className="lobby-container">
-      <h1>Spotify Game Lobby</h1>
+      <h1>Guessify Lobby</h1>
       {!gameMode ? (
         <>
             <div className="button-container">

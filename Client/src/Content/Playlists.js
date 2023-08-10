@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { getAllPlaylist, getPlaylist } from "./Spotify";
+import { getAllPlaylist, getPlaylist, getProfile } from "./Spotify";
 import '../CSS/Playlist.css'
 
 function Playlists() {  
 
   let [token, setToken] = useState("");
   let [playlists, setPlaylists] = useState([]);
+  let [profile, setProfile] = useState("");
   let [playlistData, setPlaylistData] = useState([]);
   let [selectedPlaylists, setSelectedPlaylists] = useState([]);
   let [clickCounts, setClickCounts] = useState({});
@@ -18,9 +19,24 @@ function Playlists() {
     (async () => {
         if (token) {
             setPlaylists(await getAllPlaylist(token));
+            setProfile(await getProfile(token));
         }
     })();
   }, [token]);
+
+  useEffect(() => {
+    console.log(profile);
+    if (profile && profile.images && profile.images[1] && profile.images[1].url) {
+        window.localStorage.setItem('profileImage', profile.images[1].url);
+    }
+    if (profile && profile.display_name) {
+        window.localStorage.setItem('profileName', profile.display_name);
+    }
+    if (profile && profile.id) {
+      window.localStorage.setItem('profileId', profile.id);
+  }
+}, [profile]);
+
 
   useEffect(() => {
     if(playlists) {
