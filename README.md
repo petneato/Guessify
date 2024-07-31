@@ -1,6 +1,6 @@
 <p align="center"><img src="other/img/spotify.jpeg" height="100"></p>
 <p align="center"><img src="other/img/guessify.png"></p>
-<p align="center">Authors: James Guiden, Alec Montesano, Owen Conlon</p>
+<p align="center">Authors: Alec Montesano, Quinn Montgomery</p>
 
 # Introduction
 Guessify is a web-based game application built with React and NodeJS. Users can connect and play with their Spotify accounts by logging in and selecting a playlist to use. They can then choose to create or join a new game where they play through various rounds with other users while guessing whose playlist the currently queued song belongs to. Players are assigned points based on correct guesses with a leaderboard displaying the winner when an endgame state has been triggered.
