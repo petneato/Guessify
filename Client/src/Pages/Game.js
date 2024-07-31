@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getTracks } from "./Spotify"
+import { getTracks } from "../SpotifyTemp/Spotify"
 import "../CSS/Game.css";
 import { getAuth, signInAnonymously } from 'firebase/auth';
 import { getDatabase, ref, set, push, child, remove, onValue, update, get, onChildAdded } from 'firebase/database';

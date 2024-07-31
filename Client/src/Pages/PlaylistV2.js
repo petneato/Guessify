@@ -1,4 +1,4 @@
-import { getPlaylist } from "./Spotify";
+import { getPlaylist } from "../Content/Spotify";
 import React, { useState, useEffect } from "react";
 import '../CSS/View.css';
 function PlaylistV2() {

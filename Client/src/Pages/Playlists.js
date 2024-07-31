@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getAllPlaylist, getPlaylist, getProfile } from "./Spotify";
+import { getAllPlaylist, getPlaylist, getProfile } from "../SpotifyTemp/Spotify";
 import '../CSS/Playlist.css'
 
 function Playlists() {  
