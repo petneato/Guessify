@@ -27,14 +27,15 @@ The following diagram demonstrates this architecture flow while depicting the fr
 </p>
 
 
-# Installation
-Proper installation instructions will be provided in the respective client and server directory README files. 
+# Acess the Project
+This project is intended to be hosted on googles firebase server. 
+Currently it is not updated with recent api and project keys.
 
 # License
 ```
 MIT License
 
-Copyright (c) 2023 James Guiden
+Copyright (c) Alec Montesano 2024
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
