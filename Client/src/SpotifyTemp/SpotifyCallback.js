@@ -3,14 +3,18 @@ import '../CSS/View.css';
 import logo from '../Images/Spotify.png';
 import { useState, useEffect } from "react";
 
+
+//Page displayed after user login
 function SpotifyCallback(){
 
     let [user, setUser] = useState("");
     let [token, setToken] = useState("");
     let [image, setImage] = useState("");
 
+    //Sends the user to playlist selection
     let goPlay = () => { window.location.href = "playlists"; }
 
+    //
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
         let code = urlParams.get('code');
@@ -52,7 +56,7 @@ function SpotifyCallback(){
           <h1>Guessify</h1>
           <h3>Spotify Guessing Game</h3>
           <h4>Welcome {user.display_name}!</h4>
-          <button onClick={goPlay} >playlist veiwer 😊</button>
+          <button onClick={goPlay} >playlist veiwer</button>
         </header>
         <body>
 

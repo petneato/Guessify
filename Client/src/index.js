@@ -1,19 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+import App from './App'
 import './index.css';
 import View from './Content/View';
 import SpotifyCallback from './Content/SpotifyCallback';
 import Playlists from './Content/Playlists';
-import PlaylistV2 from './Content/PlaylistV2'
+import PlaylistV2 from './Components/'
 import Lobby from './Content/Lobby'
 import Game from './Content/Game'
 import Test from './Content/Test'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 
-// Import the functions you need from the SDKs you need
+// Import the functions you need from the SDKs
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -36,30 +39,8 @@ const analytics = getAnalytics(app);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <View />
-        </Route>
-        <Route exact path="/callback">
-          <SpotifyCallback />
-        </Route>
-        <Route exact path="/playlistview">
-          <PlaylistV2 />  
-        </Route>
-        <Route exact path="/playlists">
-          <Playlists />
-        </Route>
-        <Route exact path="/lobby">
-          <Lobby />
-        </Route>
-        <Route exact path="/game">
-          <Game />
-        </Route>
-        <Route exact path='/test'>
-          <Test />
-        </Route>
-      </Switch>
-    </Router>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
