@@ -7,7 +7,7 @@ import SpotifyPlayer from 'react-spotify-web-playback';
 import defaultImage from '../Images/PP.png';
 
 
-function Game() {
+const Game = () => {
     // Define states
     let profileImage = defaultImage;
     if (window.localStorage.getItem('profileImage')) {
@@ -102,7 +102,7 @@ function Game() {
     }
 
     const getRandomHelper = async (numSongs) => {
-        function shuffleArray(array) {
+        const shuffleArray = (array) => {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [array[i], array[j]] = [array[j], array[i]];

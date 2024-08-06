@@ -2,7 +2,7 @@ import {loginPKCE, getProfile, getLoginToken, getPlaylist} from '../SpotifyTemp/
 import logo from '../Images/Spotify.png';
 import '../CSS/View.css'
 
-function LoginPage() {
+const LoginPage = () => {
 
   return (
     <div className="Super">

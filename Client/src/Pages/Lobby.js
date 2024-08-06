@@ -5,7 +5,7 @@ import { getAuth, signInAnonymously } from 'firebase/auth';
 import { getDatabase, ref, set, push, child, remove, onValue, update, get } from 'firebase/database';
 
 
-function LobbyCreation() {
+const LobbyCreation = () => {
 
   let trackS = window.localStorage.getItem('tracks')
   const tracksA = trackS.split(",");
@@ -41,32 +41,10 @@ function LobbyCreation() {
   
     // set game name and creator
     await set(gameRef, { name: name, creator: res.user.uid });
-  
-    // // set tracks as a child node
-    // const creatorRef = child(gameRef, 'creator');
-
-    // //set uID of creator
-    // const uID = child(creatorRef, 'uID')
-    // await set(uID, res.user.uid)
-
-    // //Set the tracks for the creator
-    // for(let i = 0; i < tracks.length; i++){
-    //   let trackRef = child(creatorRef, `track${i+1}`);
-    //   await set(trackRef, tracks[i])
-    // }
 
     // create Users node under the game
     const usersRef = child(gameRef, 'users');
 
-    // Check how many children (users) there are currently
-    // let count = 0;
-    // const usersSnapshot = await get(usersRef);
-    // if (usersSnapshot.exists()) {
-    //   count = Object.keys(usersSnapshot.val()).length;
-    // }
-  
-    // Increment the count and use it as the new user ID
-    // let userRef = child(usersRef, `uID${count + 1}`);
     let userRef = child(usersRef, profileName);
     await set(userRef, res.user.uid);
 
@@ -120,15 +98,6 @@ function LobbyCreation() {
     // create Users node under the game
     const usersRef = child(gameRef, 'users');
   
-    // Check how many children (users) there are currently
-    // let count = 0;
-    // const usersSnapshot = await get(usersRef);
-    // if (usersSnapshot.exists()) {
-    //   count = Object.keys(usersSnapshot.val()).length;
-    // }
-  
-    // Increment the count and use it as the new user ID
-    // let userRef = child(usersRef, `uID${count + 1}`);
     let userRef = child(usersRef, profileName);
     await set(userRef, res.user.uid);
     

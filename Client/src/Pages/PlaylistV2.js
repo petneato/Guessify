@@ -1,7 +1,8 @@
-import { getPlaylist } from "../Content/Spotify";
+//CHANGE ME vvvv
+import { getPlaylist } from "../SpotifyTemp/Spotify";
 import React, { useState, useEffect } from "react";
 import '../CSS/View.css';
-function PlaylistV2() {
+const PlaylistV2 = () => {
 
     let [token, setToken] = useState("");
     let [playlistJson, setPlaylistJson] = useState([]);

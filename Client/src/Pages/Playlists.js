@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getAllPlaylist, getPlaylist, getProfile } from "../SpotifyTemp/Spotify";
 import '../CSS/Playlist.css'
 
-function Playlists() {  
+const Playlists = () => {  
 
   let [token, setToken] = useState("");
   let [playlists, setPlaylists] = useState([]);
@@ -71,7 +71,7 @@ function Playlists() {
     }
   }
 
-  function nextPage() {
+  const nextPage = () => {
     if (selectedPlaylists.length === 0) {
       return; // Don't do anything if no playlists are selected
     }

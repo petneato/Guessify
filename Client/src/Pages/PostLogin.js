@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 
 //Page displayed after user login
-function PostLogin(){
+const PostLogin = () => {
 
     let [user, setUser] = useState("");
     let [token, setToken] = useState("");
