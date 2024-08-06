@@ -31,7 +31,7 @@ function generateRandomString(length) {
 
 //PKCE - Proof Key for Code Exchange
 //Trying to reverse engineer this a bit. Quinn Originally coded the API connection
-//This function seems to generate the popup and handle users logging in with their spotify
+//Redirects to spotify site for login
 export function loginPKCE() {
     let codeVerifier = generateRandomString(128);
     window.localStorage.setItem("codeVerifier", codeVerifier);
@@ -41,7 +41,7 @@ export function loginPKCE() {
 
         window.localStorage.setItem('code_verifier', codeVerifier);
 
-        let args = new SearchParams({
+        let args = new URLSearchParams({
             response_type: 'code',
             client_id: client_id,
             scope: scope,

@@ -1,11 +1,11 @@
-import {loginPKCE, getProfile, getLoginToken, getPlaylist} from './Spotify.js'
+import {loginPKCE, getProfile, getLoginToken, getPlaylist} from '../SpotifyTemp/Spotify.js'
 import '../CSS/View.css';
 import logo from '../Images/Spotify.png';
 import { useState, useEffect } from "react";
 
 
 //Page displayed after user login
-function SpotifyCallback(){
+function PostLogin(){
 
     let [user, setUser] = useState("");
     let [token, setToken] = useState("");
@@ -66,4 +66,4 @@ function SpotifyCallback(){
 
 }
 
-export default SpotifyCallback;
+export default PostLogin;

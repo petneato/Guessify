@@ -1,8 +1,8 @@
-import {loginPKCE, getProfile, getLoginToken, getPlaylist} from './Spotify.js'
+import {loginPKCE, getProfile, getLoginToken, getPlaylist} from '../SpotifyTemp/Spotify'
 import logo from '../Images/Spotify.png';
 import '../CSS/View.css'
 
-function View() {
+function LoginPage() {
 
   return (
     <div className="Super">
@@ -20,4 +20,4 @@ function View() {
   );
 }
 
-export default View;
+export default LoginPage;
