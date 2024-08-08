@@ -2,6 +2,8 @@
 import { getPlaylist } from "../SpotifyTemp/Spotify";
 import React, { useState, useEffect } from "react";
 import '../CSS/View.css';
+
+//This seems like a test page
 const PlaylistV2 = () => {
 
     let [token, setToken] = useState("");
