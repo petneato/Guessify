@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getAllPlaylist, getPlaylist, getProfile } from "../SpotifyTemp/Spotify";
+import { getAllPlaylist, getPlaylist, getProfile } from "../SpotifyTemp/Spotify.js";
 import '../CSS/Playlist.css'
 
 const Playlists = () => {  

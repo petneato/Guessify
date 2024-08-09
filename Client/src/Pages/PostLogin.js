@@ -1,5 +1,5 @@
 import {loginPKCE, getProfile, getLoginToken, getPlaylist} from '../SpotifyTemp/Spotify.js'
-import '../CSS/View.css';
+// import '../CSS/View.css';
 import logo from '../Images/Spotify.png';
 import { useState, useEffect } from "react";
 

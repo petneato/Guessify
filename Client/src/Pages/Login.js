@@ -1,6 +1,6 @@
-import {loginPKCE, getProfile, getLoginToken, getPlaylist} from '../SpotifyTemp/Spotify'
+import {loginPKCE, getProfile, getLoginToken, getPlaylist} from '../SpotifyTemp/Spotify.js'
 import logo from '../Images/Spotify.png';
-import '../CSS/View.css'
+// import '../CSS/View.css'
 
 const LoginPage = () => {
 

@@ -2,12 +2,15 @@ import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react
 import * as React from 'react';
 
 //Page/View imports -- These are in order of how the user will interract with them
-import Login from './Pages/Login';
-import Callback from './Pages/PostLogin';
-import SelectPlaylist from './Pages/Playlists';
-import Lobby from './Pages/Lobby';
-import Game from './Pages/Game';
+import Login from './Pages/Login.js';
+import Callback from './Pages/PostLogin.js';
+import SelectPlaylist from './Pages/Playlists.js';
+import Lobby from './Pages/Lobby.js';
+import Game from './Pages/Game.js';
 
+import PlaylistRebuild from './Pages/PlaylistRebuild.js'
+
+import './CSS/tailwind.css'
 
 
 const App = () => {
@@ -18,6 +21,8 @@ const App = () => {
             <Route path="playlists" element={<SelectPlaylist/>}/>
             <Route path="/lobby" element={<Lobby/>}/>
             <Route path="/game" element={<Game/>}/>
+
+            <Route path="/test" element={<PlaylistRebuild/>}/>
         </Routes>
     )
 }

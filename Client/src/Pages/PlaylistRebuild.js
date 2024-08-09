@@ -2,18 +2,29 @@ const PlaylistRebuild = () => {
     const test = []
 
     return (
-        <div>
-            <div>
+        <div className="
+            flex-col 
+            justify-center 
+            bg-spotifyBlack
+            m-[1.5em]
+            rounded
+            ">
+            <div className="
+                flex-row
+                text-center
+                w-full
+            
+            ">
                 <h1>Select a Playlist</h1>
             </div>
 
 
-            <div>   
-                <button onClick={nextPage} className='submit'>Next Page</button>
+            <div className="flex-row text-center">   
+                <button className='submit'>Next Page</button>
             </div>
 
 
-            <div>
+            <div className="">
                 {test.map((PlaylistObj, Playlist) => { 
                     
                 })};
