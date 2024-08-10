@@ -1,6 +1,7 @@
 import React from "react";
 import StyledButton from "../Components/StyledButton.js";
 import PlaylistCard from "../Components/PlaylistCard.js"
+import img from "../Images/Guessify.png"
 
 const PlaylistRebuild = () => { 
     const cards = [];
@@ -10,7 +11,7 @@ const PlaylistRebuild = () => {
         cards.push(
             <PlaylistCard 
                 key={i}
-                PlaylistCover={`../Images/Guessify.png`} 
+                PlaylistCover={img} 
                 playlistName={`Playlist ${i}`} 
                 onClick={() => console.log(`Playlist ${i} clicked`)} 
             />
@@ -27,12 +28,13 @@ const PlaylistRebuild = () => {
                 <h1 className="
                     text-6xl
                     font-bold
+                    text-spotifyWhite
                 ">
                     Select a Playlist
                 </h1>
             </div>
 
-            <div className="custom-scrollbar flex flex-wrap justify-center gap-6 overflow-y-auto w-full flex-grow p-4" style={{ maxHeight: '82%' }}>
+            <div className="custom-scrollbar flex flex-wrap justify-center gap-12 overflow-y-auto w-full flex-grow p-4" style={{ maxHeight: '82%' }}>
                 {cards}
             </div> 
 
