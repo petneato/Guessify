@@ -8,6 +8,8 @@ import SelectPlaylist from './Pages/Playlists.js';
 import Lobby from './Pages/Lobby.js';
 import Game from './Pages/Game.js';
 
+import NavBar from "./Components/NavBar.js";
+
 import PlaylistRebuild from './Pages/PlaylistRebuild.js'
 
 import './CSS/tailwind.css'
@@ -15,16 +17,21 @@ import './CSS/tailwind.css'
 
 const App = () => {
     return (
-        <Routes>
-            <Route path="/"  element={<Login/>} />
-            <Route path="/callback" element={<Callback/>} />
-            <Route path="playlists" element={<SelectPlaylist/>}/>
-            <Route path="/lobby" element={<Lobby/>}/>
-            <Route path="/game" element={<Game/>}/>
+        <div className="h-[100vh] flex flex-col">
+            <NavBar />
+            <div className="flex-grow overflow-hidden">
+                <Routes>
+                    <Route path="/"  element={<Login/>} />
+                    <Route path="/callback" element={<Callback/>} />
+                    <Route path="playlists" element={<SelectPlaylist/>}/>
+                    <Route path="/lobby" element={<Lobby/>}/>
+                    <Route path="/game" element={<Game/>}/>
 
-            <Route path="/test" element={<PlaylistRebuild/>}/>
-        </Routes>
+                    <Route path="/test" element={<PlaylistRebuild/>}/>
+                </Routes>
+            </div>
+        </div>
     )
 }
 
-export default App
+export default App;

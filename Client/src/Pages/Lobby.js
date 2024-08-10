@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../CSS/Lobby.css";
+// import "../CSS/Lobby.css";
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInAnonymously } from 'firebase/auth';
 import { getDatabase, ref, set, push, child, remove, onValue, update, get } from 'firebase/database';

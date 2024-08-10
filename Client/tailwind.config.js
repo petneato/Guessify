@@ -7,7 +7,11 @@ export default {
     colors: {
       spotifyBlack: '#282c34',
       spotifySand: '#696464',
-      
+      spotifyGreen: '#1DB954',
+      spotifyHoverGreen: '#1ed760',
+      spotifyWhite: '#FFFFFF',
+      spotifyCardBlack: '#121212',
+      orange: '#392892',
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
