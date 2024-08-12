@@ -10,23 +10,23 @@ const PlaylistCard = ({ PlaylistCover, playlistName }) => {
 
   return (
     <div
-      className={`custom-scrollbar flex flex-col justify-between 
+      className={`custom-scrollbar flex flex-col 
           p-4 min-w-[240px] min-h-[310px] text-white rounded-lg shadow-md shadow-black/50 cursor-pointer 
           transition-transform transform hover:scale-105 ${
             isSelected ? "bg-[#1DB954]" : "bg-spotifyCardBlack"
           }`}
       onClick={onClick}
     >
-      <div className="flex-grow max-w-[210px] max-h-[210px] min-h-[170px] min-w-[170p">
+      <div className="flex-grow max-w-[210px] max-h-[210px] min-h-[170px] min-w-[170px]">
         <img
           src={PlaylistCover}
           alt={playlistName}
           className="w-full h-full object-cover rounded-md"
         />
       </div>
-      <h5 className="flex text-2xl items-center justify-center my-2 text-spotifyWhite bg-orange ">
+      <p className="flex-grow flex items-center justify-center text-spotifyWhite w-full text-center mt-4 text-2xl">
         {playlistName}
-      </h5>
+      </p>
     </div>
   );
 };
