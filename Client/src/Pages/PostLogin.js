@@ -1,7 +1,8 @@
-import {loginPKCE, getProfile, getLoginToken, getPlaylist} from '../SpotifyTemp/Spotify.js'
-// import '../CSS/View.css';
-import logo from '../Images/Spotify.png';
 import { useState, useEffect } from "react";
+import { getProfile } from '../API/get.js'
+import {getLoginToken} from '../View Model/Spotify.js'
+
+import logo from '../Images/Spotify.png';
 
 
 //Page displayed after user login

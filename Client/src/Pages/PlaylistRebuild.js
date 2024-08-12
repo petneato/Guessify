@@ -34,8 +34,9 @@ const PlaylistRebuild = () => {
                 </h1>
             </div>
 
-            <div className="custom-scrollbar flex flex-wrap justify-center gap-12 overflow-y-auto w-full flex-grow p-4" style={{ maxHeight: '82%' }}>
+            <div className="custom-scrollbar flex flex-wrap justify-center gap-12 overflow-y-auto w-full flex-grow p-4 max-h-[72vh]" >
                 {cards}
+                <PlaylistCard playlistName=""/>
             </div> 
 
             <div className="
@@ -49,8 +50,8 @@ const PlaylistRebuild = () => {
                     hover:bg-spotifyHoverGreen
                     text-spotifyWhite
                     text-xl
-                    px-[25px]
-                    py-[10px]
+                    px-16
+                    py-4
                     rounded-3xl
                 ">
                     Submit

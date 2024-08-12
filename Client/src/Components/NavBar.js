@@ -1,24 +1,19 @@
 import React from "react";
+import { loginPKCE } from '../View Model/Spotify.js'
 
 const NavBar = () => {
     return (
-        <nav className="bg-spotifyBlack text-spotifyWhite py-4 w-full">
-            <div className="container mx-auto flex justify-between items-center">
-                <div className="text-2xl font-bold">
-                    MyApp
+        <nav className="bg-spotifyBlack text-spotifyWhite py-4 w-[100%]">
+            <div className="  flex justify-between items-center">
+                <div className="text-2xl font-bold ml-4 mr-auto">
+                    <a href="/">Guessify</a>
                 </div>
                 <ul className="flex space-x-6">
                     <li className="hover:text-spotifyGreen transition-colors duration-300">
-                        <a href="#home">Home</a>
+                        <a href="/">Home</a>
                     </li>
                     <li className="hover:text-spotifyGreen transition-colors duration-300">
-                        <a href="#playlists">Playlists</a>
-                    </li>
-                    <li className="hover:text-spotifyGreen transition-colors duration-300">
-                        <a href="#about">About</a>
-                    </li>
-                    <li className="hover:text-spotifyGreen transition-colors duration-300">
-                        <a href="#contact">Contact</a>
+                        <a href="/playlists">Playlists</a>
                     </li>
                 </ul>
                 <button className="
@@ -32,7 +27,9 @@ const NavBar = () => {
                     cursor-pointer
                     transition-colors
                     duration-300
-                ">
+                    ml-auto
+                    mr-4
+                " onClick={loginPKCE}>
                     Sign In
                 </button>
             </div>

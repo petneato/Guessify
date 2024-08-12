@@ -14,6 +14,11 @@ const ViewModel = () => {
     let [selectedSongs, setSelectedSongs] = useState([]);
 
 
+    //Returns whether or not the user is signed in
+    const getSignedIn = () => { 
+
+    }
+
 //Going to start by making a getter and setter for each state
 //-----------------------------------------------------------
 
@@ -29,11 +34,11 @@ const ViewModel = () => {
 
     //slectedPlaylist appender
     const addSelectedPlaylist = (selPlaylist) => {
-        setSelectedPlaylist(...selectedPlaylist, selPlaylist)
+        setSelectedPlaylists(...selectedPlaylists, selPlaylist)
     }
 
     const getSelectedPlaylist = () => {
-        return selectedPlaylist;
+        return selectedPlaylists;
     }
     
 
