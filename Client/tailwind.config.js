@@ -1,31 +1,77 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 export default {
   content: [
     './src/**/*.{js,jsx,ts,tsx,html}',
-    './public/index.html'
+    './public/index.html',
   ],
   theme: {
-    colors: {
-      spotifyBlack: '#282c34',
-      spotifySand: '#696464',
-      spotifyGreen: '#1DB954',
-      spotifyHoverGreen: '#1ed760',
-      spotifyWhite: '#FFFFFF',
-      spotifyCardBlack: '#121212',
-      orange: '#392892',
-    },
-    fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
-    },
     extend: {
+      height: {
+        '5p': '5%',
+        '10p': '10%',
+        '15p': '15%',
+        '20p': '20%',
+        '25p': '25%',
+        '30p': '30%',
+        '35p': '35%',
+        '40p': '40%',
+        '45p': '45%',
+        '50p': '50%',
+        '55p': '55%',
+        '60p': '60%',
+        '65p': '65%',
+        '70p': '70%',
+        '75p': '75%',
+        '80p': '80%',
+        '85p': '85%',
+        '90p': '90%',
+        '95p': '95%',
+        '100p': '100%',
+      },
+      width: {
+        '5p': '5%',
+        '10p': '10%',
+        '15p': '15%',
+        '20p': '20%',
+        '25p': '25%',
+        '30p': '30%',
+        '35p': '35%',
+        '40p': '40%',
+        '45p': '45%',
+        '50p': '50%',
+        '55p': '55%',
+        '60p': '60%',
+        '65p': '65%',
+        '70p': '70%',
+        '75p': '75%',
+        '80p': '80%',
+        '85p': '85%',
+        '90p': '90%',
+        '95p': '95%',
+        '100p': '100%',
+      },
+      colors: {
+        spotifyBlack: '#282c34',
+        spotifySand: '#696464',
+        spotifyGreen: '#1DB954',
+        spotifyHoverGreen: '#1ed760',
+        spotifyWhite: '#FFFFFF',
+        spotifyCardBlack: '#121212',
+        orange: '#392892',
+      },
       spacing: {
         '8xl': '96rem',
         '9xl': '128rem',
       },
       borderRadius: {
         '4xl': '2rem',
-      }
-    }
+      },
+      fontFamily: {
+        sans: ['Graphik', 'sans-serif'],
+        serif: ['Merriweather', 'serif'],
+      },
+    },
   },
-  pluagins: [],
+  plugins: [],
 }

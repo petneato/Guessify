@@ -1,5 +1,4 @@
 import React from "react";
-import StyledButton from "../Components/StyledButton.js";
 import PlaylistCard from "../Components/PlaylistCard.js"
 import img from "../Images/Guessify.png"
 
