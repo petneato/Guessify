@@ -13,11 +13,21 @@ html, body {
 }
 
 body {
+  @apply font-goth;
   background-color: #696464;
 }
 
+/* Define the Gotham font face */
+@font-face {
+  font-family: 'Gotham';
+  src: url('../../public/Assets/Fonts/GOTHAM-BOLD.OTF') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
 
+/* Custom scrollbar styles */
 @layer utilities {
+  /* WebKit browsers (Chrome, Safari, Edge) */
   .custom-scrollbar::-webkit-scrollbar {
     width: 8px;
   }
@@ -35,5 +45,11 @@ body {
 
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background-color: #1DD05D;
+  }
+
+  /* Firefox */
+  .custom-scrollbar {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: #1ED760 #2b2b2b; /* thumb color, track color */
   }
 }

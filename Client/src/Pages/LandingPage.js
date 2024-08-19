@@ -1,40 +1,39 @@
+// LandingPage Component
 import React from 'react';
-
+import SongCard from '../Components/SongCard.js';
+import guessifyLogo from '../Images/Guessify.png';
 
 const LandingPage = () => {
   return (
-    
-      <div className="flex flex-row items-center justify-center p-8 h-full">
-
+    <div className="flex flex-col md:flex-row items-center justify-center p-6 h-full w-full bg-blue-400 box-border">
+      <div className="flex flex-1 flex-col md:flex-row w-full h-full">
         
-        <div className='flex flex-col grow mx-3 h-full'>
-          <div className="bg-spotifyBlack p-8 rounded-lg justify-center my-auto h-95p w-50p">
-            <h2 className="text-2xl font-bold mb-4 text-center text-white">Songs From Previous Match</h2>
-            <p className="te xt-lg text-white">
-              This is a music guessing game powered by Spotify. Choose a game mode and start playing!
-            </p>
+        {/* Previous Songs Section */}
+        <div className="flex flex-1 bg-red-300 justify-center p-4">
+          <div className="box-border flex flex-col w-full h-full bg-spotifyBlack rounded-3xl text-center">
+            <p className="text-white m-6 text-4xl">Previous Songs</p>
+            <div className="box-border custom-scrollbar flex flex-col h-full mb-10 p-4 overflow-y-auto">
+              <SongCard albumArt={guessifyLogo} songTitle={"Hello world long song title"} />
+            </div>
           </div>
         </div>
 
-        <div className='flex flex-col h-95p mr-3 justify-between'>
-        <div className="flex space-x-4 mb-8 justify-center">
-          <button className="bg-spotifyGreen hover:bg-[#1DD05D] text-white px-6 py-3 rounded-full text-lg transition-colors duration-300">
-            Classic
+        {/* Guessing Buttons Section */}
+        <div className="flex flex-1 flex-col bg-green-300 justify-center items-center p-4">
+          <button className="bg-spotifyGreen hover:bg-[#1DD05D] text-white mx-10 my-2 py-4 md:py-10 rounded-full text-lg transition-colors duration-300 w-full max-w-xs">
+            Guess Whose Song
           </button>
-          <button className="bg-spotifyGreen hover:bg-[#1DD05D] text-white px-6 py-3 rounded-full text-lg transition-colors duration-300">
-            Guess Song
+          <button className="bg-spotifyGreen hover:bg-[#1DD05D] text-white mx-10 my-2 py-4 md:py-10 rounded-full text-lg transition-colors duration-300 w-full max-w-xs">
+            Guess The Song
           </button>
         </div>
 
-        <div className="bg-spotifyBlack p-8 rounded-lg text-white">
-          <h2 className="text-2xl font-bold mb-4">About</h2>
-          <p className="text-lg text-white">
-            This is a music guessing game powered by Spotify. Choose a game mode and start playing!
-          </p>
+        {/* Placeholder Section */}
+        <div className="flex flex-1 bg-yellow-300 p-4">
+          {/* Additional content or placeholder */}
         </div>
       </div>
-      </div>
-
+    </div>
   );
 };
 

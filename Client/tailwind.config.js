@@ -68,7 +68,8 @@ export default {
         '4xl': '2rem',
       },
       fontFamily: {
-        sans: ['Graphik', 'sans-serif'],
+        goth: ['Gotham',],
+        sans: ['Graphik', 'sans-serif',],
         serif: ['Merriweather', 'serif'],
       },
     },
