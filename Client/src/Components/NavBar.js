@@ -3,12 +3,12 @@ import { loginPKCE } from '../View Model/Spotify.js'
 
 const NavBar = () => {
     return (
-        <nav className="bg-spotifyBlack text-spotifyWhite py-4 w-[100%]">
-            <div className="  flex justify-between items-center">
-                <div className="text-2xl font-bold ml-4 mr-auto">
+        <nav className="bg-spotifyBlack text-spotifyWhite py-[1vw] w-full">
+            <div className="flex justify-between items-center px-[2.5vw]">
+                <div className="text-[2.5vw] font-bold mr-auto">
                     <a href="/">Guessify</a>
                 </div>
-                <ul className="flex space-x-6">
+                <ul className="flex space-x-[2vw] text-[1.2vw]">
                     <li className="hover:text-spotifyGreen transition-colors duration-300">
                         <a href="/">Home</a>
                     </li>
@@ -20,15 +20,14 @@ const NavBar = () => {
                     bg-spotifyGreen
                     hover:bg-[#1DD05D]
                     text-white
-                    px-4
-                    py-2
+                    px-[1.5vw]
+                    py-[0.75vw]
                     rounded-full
-                    text-sm
+                    text-[1vw]
                     cursor-pointer
                     transition-colors
                     duration-300
                     ml-auto
-                    mr-4
                 " onClick={loginPKCE}>
                     Sign In
                 </button>
