@@ -2,7 +2,7 @@ import React from "react";
 import PlaylistCard from "../Components/PlaylistCard.js"
 import img from "../Images/Guessify.png"
 
-const PlaylistRebuild = () => { 
+const PlaylistSelect = () => { 
     const cards = [];
     const numberOfCards = 20; // Specify how many cards you want
 
@@ -60,4 +60,4 @@ const PlaylistRebuild = () => {
     );
 }
 
-export default PlaylistRebuild;
+export default PlaylistSelect;

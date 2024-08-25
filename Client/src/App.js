@@ -11,9 +11,7 @@ import {
 
 //Page/View imports -- These are in order of how the user will interract with them
 import LandingPage from './Pages/LandingPage.js';
-import Callback from './Pages/PostLogin.js';
-import PlaylistRebuild from "./Pages/PlaylistRebuild.js";
-import SelectPlaylist from './Pages/Playlists.js';
+import PlaylistSelect from "./Pages/PlaylistSelect.js";
 import Lobby from './Pages/Lobby.js';
 import Game from './Pages/Game.js';
 
@@ -31,12 +29,9 @@ const App = () => {
                 <div className="flex-grow overflow-hidden">
                     <Routes>
                         <Route path="/"  element={<LandingPage/>} />
-                        <Route path="/callback" element={<Callback/>} />
-                        <Route path="/test" element={<SelectPlaylist/>}/>
+                        <Route path="/playlists" element={<PlaylistSelect/>}/>
                         <Route path="/lobby" element={<Lobby/>}/>
                         <Route path="/game" element={<Game/>}/>
-
-                        <Route path="/playlists" element={<PlaylistRebuild/>}/>
                     </Routes>
                 </div>
         </div>
