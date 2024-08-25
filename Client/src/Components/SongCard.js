@@ -3,7 +3,7 @@
 const SongCard = ({ albumArt, songTitle }) => {
     return (
         // Outer container for the song card
-        <div className="flex bg-white w-full rounded-lg overflow-hidden h-[5.5vw] mb-[0.5vw]">
+        <div className="flex bg-white w-full rounded-[0.5vw] overflow-hidden h-[5.5vw] mb-[0.5vw]">
             
             {/* Album art image */}
             <img 
@@ -22,7 +22,7 @@ const SongCard = ({ albumArt, songTitle }) => {
                 
                 {/* Action button (e.g., add to playlist) */}
                 <button className="bg-spotifyGreen hover:bg-[#1DD05D] text-white 
-                w-[2.5vw] h-[2.5vw] rounded-full flex items-center justify-center 
+                w-[2.5vw] h-[2.5vw] rounded-[50%] flex items-center justify-center 
                 transition-colors duration-300 text-[1.5vw] flex-shrink-0 ml-[0.5vw]">
                     +  {/* Button symbol */}
                 </button>
