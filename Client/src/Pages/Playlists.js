@@ -1,115 +1,82 @@
 import React, { useState, useEffect } from "react";
-import { getAllPlaylist, getPlaylist, getProfile } from "../API/get.js";
-// import '../CSS/Playlist.css'
+import { getAllPlaylist, getProfile } from "../API/get.js";
+import PlaylistCard from "../Components/PlaylistCard.js";
 
 const Playlists = () => {  
-
-  let [token, setToken] = useState("");
-  let [playlists, setPlaylists] = useState([]);
-  let [profile, setProfile] = useState("");
-  let [playlistData, setPlaylistData] = useState([]);
-  let [selectedPlaylists, setSelectedPlaylists] = useState([]);
-  let [clickCounts, setClickCounts] = useState({});
+  const [token, setToken] = useState("");
+  const [playlistData, setPlaylistData] = useState([]);
+  const [selectedPlaylists, setSelectedPlaylists] = useState([]);
 
   useEffect(() => {
-      setToken(window.localStorage.getItem('access_token'));
+    setToken(window.localStorage.getItem('access_token'));
   }, []);
 
   useEffect(() => {
     (async () => {
-        if (token) {
-            setPlaylists(await getAllPlaylist(token));
-            setProfile(await getProfile(token));
+      if (token) {
+        const playlists = await getAllPlaylist(token);
+        const profile = await getProfile(token);
+        
+        if (profile.images && profile.images[1] && profile.images[1].url) {
+          window.localStorage.setItem('profileImage', profile.images[1].url);
         }
+        if (profile.display_name) {
+          window.localStorage.setItem('profileName', profile.display_name);
+        }
+        if (profile.id) {
+          window.localStorage.setItem('profileId', profile.id);
+        }
+
+        const data = playlists.map(playlist => ({
+          id: playlist.id,
+          name: playlist.name,
+          image: playlist.images[0]?.url,
+          tracks: playlist.tracks.href
+        }));
+        setPlaylistData(data);
+      }
     })();
   }, [token]);
 
-  useEffect(() => {
-    console.log(profile);
-    if (profile && profile.images && profile.images[1] && profile.images[1].url) {
-        window.localStorage.setItem('profileImage', profile.images[1].url);
-    }
-    if (profile && profile.display_name) {
-        window.localStorage.setItem('profileName', profile.display_name);
-    }
-    if (profile && profile.id) {
-      window.localStorage.setItem('profileId', profile.id);
-  }
-}, [profile]);
-
-
-  useEffect(() => {
-    if(playlists) {
-      let data = [];
-      for (let playlist of playlists) {
-        let image;
-        try{ image = playlist.images[0].url; } catch{}
-        data.push({name: playlist.name, image: image, tracks: playlist.tracks.href});
-      }
-      setPlaylistData(data)
-    }
-  }, [playlists]);
-
-  useEffect(() => {
-    console.log(selectedPlaylists);
-  }, [selectedPlaylists]);
-
-  function handleClick(tracks) {
-    // Create new click counts
-    const newClickCounts = {
-      ...clickCounts,
-      [tracks]: clickCounts[tracks] ? clickCounts[tracks] + 1 : 1
-    };
-
-    setClickCounts(newClickCounts);
-
-    // Update selected playlists based on new click counts
-    if (newClickCounts[tracks] % 2 === 1) {
-      setSelectedPlaylists(prevSelectedPlaylists => [...prevSelectedPlaylists, tracks]);
-    } else {
-      setSelectedPlaylists(prevSelectedPlaylists => prevSelectedPlaylists.filter(id => id !== tracks));
-    }
-  }
+  const handlePlaylistClick = (tracks) => {
+    setSelectedPlaylists(prevSelected => 
+      prevSelected.includes(tracks)
+        ? prevSelected.filter(id => id !== tracks)
+        : [...prevSelected, tracks]
+    );
+  };
 
   const nextPage = () => {
-    if (selectedPlaylists.length === 0) {
-      return; // Don't do anything if no playlists are selected
-    }
-    window.localStorage.setItem('tracks', selectedPlaylists);
-    window.location.href = "lobby"
-  }
+    if (selectedPlaylists.length === 0) return;
+    window.localStorage.setItem('tracks', JSON.stringify(selectedPlaylists));
+    window.location.href = "lobby";
+  };
 
   return (
-    <div className='SuperC'>
-      <h1>Select a Playlist</h1>
-      <button onClick={nextPage} className='submit'>Next Page</button>
-
-      <div className='cards'>
-        {playlistData.map((playlist, index) => {
-          const clickCount = clickCounts[playlist.tracks] || 0;
-          const buttonStyle = clickCount % 2 === 0 ? '#1ED760' : 'red';
-          return (
-            <div key={index} className='listCard' >
-              <img src={playlist.image} alt='Playlist Cover' />
-              <h5 className='listName'>{playlist.name}</h5>
-              <button 
-                id = {playlist.tracks} 
-                className='listBtn' 
-                style={{ backgroundColor: buttonStyle }}
-                onClick={() => handleClick(playlist.tracks)}
-              >
-                Select
-              </button>
-            </div>
-          )
-        })}
+    <div className='flex flex-col items-center p-[2vw] h-screen'>
+      <h1 className='text-[3vw] mb-[2vw]'>Select a Playlist</h1>
+      
+      <div className='grid grid-cols-6 gap-x-[1vw] gap-y-[2vw] w-[95vw] h-[38vw] overflow-y-auto custom-scrollbar'>
+        {playlistData.map((playlist) => (
+          <PlaylistCard
+            key={playlist.id}
+            PlaylistCover={playlist.image}
+            playlistName={playlist.name}
+            isSelected={selectedPlaylists.includes(playlist.tracks)}
+            onClick={() => handlePlaylistClick(playlist.tracks)}
+          />
+        ))}
       </div>
 
-      <button onClick={nextPage} className='submit'>Next Page</button>
-
+      <button 
+        onClick={nextPage} 
+        className='mt-[2vw] bg-spotifyGreen text-white py-[1vw] px-[2vw] rounded-full text-[1.5vw] hover:bg-[#1DB954] transition-colors'
+        disabled={selectedPlaylists.length === 0}
+      >
+        Next Page
+      </button>
     </div>
   );
-
-}
+};
 
 export default Playlists;
