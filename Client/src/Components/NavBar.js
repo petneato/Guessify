@@ -10,23 +10,42 @@ const NavBar = () => {
     const location = useLocation();
     const dropdownRef = useRef(null);
 
-    useEffect(() => {
-        const checkLoginStatus = async () => {
-            const token = window.localStorage.getItem('access_token');
-            if (token) {
-                setIsLoggedIn(true);
-                const profile = await getUserProfile();
-                if (profile && profile.images && profile.images.length > 0) {
-                    setProfileImage(profile.images[0].url);
-                    window.localStorage.setItem('profileImage', profile.images[0].url);
-                }
-            } else {
-                setIsLoggedIn(false);
-                setProfileImage(null);
+    const checkLoginStatus = async () => {
+        const token = window.localStorage.getItem('access_token');
+        if (token) {
+            setIsLoggedIn(true);
+            const profile = await getUserProfile();
+            if (profile && profile.images && profile.images.length > 0) {
+                setProfileImage(profile.images[0].url);
+                window.localStorage.setItem('profileImage', profile.images[0].url);
             }
+        } else {
+            setIsLoggedIn(false);
+            setProfileImage(null);
+        }
+    };
+
+    useEffect(() => {
+        checkLoginStatus();
+
+        const handleLoginEvent = () => {
+            checkLoginStatus();
         };
 
-        checkLoginStatus();
+        const handleLogoutEvent = () => {
+            setIsLoggedIn(false);
+            setProfileImage(null);
+        };
+
+        window.addEventListener('loginEvent', handleLoginEvent);
+        window.addEventListener('logoutEvent', handleLogoutEvent);
+        window.addEventListener('storage', handleLoginEvent);
+
+        return () => {
+            window.removeEventListener('loginEvent', handleLoginEvent);
+            window.removeEventListener('logoutEvent', handleLogoutEvent);
+            window.removeEventListener('storage', handleLoginEvent);
+        };
     }, []);
 
     useEffect(() => {
@@ -79,10 +98,10 @@ const NavBar = () => {
                                 onClick={() => setShowDropdown(!showDropdown)}
                             />
                             {showDropdown && (
-                                <div className="absolute right-0 mt-2 w-48 bg-spotifyBlack rounded-md shadow-lg py-1 z-10">
+                                <div className="absolute right-0 mt-2 w-[10vw] bg-spotifyBlack rounded-md shadow-lg py-1 z-10">
                                     <button
                                         onClick={handleSignOut}
-                                        className="block w-full text-left px-4 py-2 text-sm text-spotifyWhite hover:bg-gray-800"
+                                        className="block w-full text-left px-[1vw] py-[0.5vw] text-[1vw] text-spotifyWhite hover:bg-gray-800"
                                     >
                                         Sign out
                                     </button>

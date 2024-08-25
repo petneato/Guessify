@@ -57,6 +57,8 @@ export const loginPKCE = async () => {
 
         if (code) {
             await getLoginToken(code, codeVerifier);
+            window.localStorage.setItem('loginEvent', Date.now().toString());
+            window.dispatchEvent(new Event('loginEvent'));
             return window.localStorage.getItem('access_token');
         }
     }
@@ -118,5 +120,7 @@ export const getUserProfile = async () => {
 export const signOut = async () => {
     window.localStorage.removeItem('access_token');
     window.localStorage.removeItem('profileImage');
+    window.localStorage.setItem('logoutEvent', Date.now().toString());
+    window.dispatchEvent(new Event('logoutEvent'));
     // You may want to add any other cleanup here, such as clearing other user-related data from localStorage
 };

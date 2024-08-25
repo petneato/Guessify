@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 
+
 import {
     RecoilRoot,
     atom,
@@ -30,9 +31,22 @@ const App = () => {
             setAccessToken(window.localStorage.getItem('access_token'));
         };
 
+        const handleLoginEvent = () => {
+            setAccessToken(window.localStorage.getItem('access_token'));
+        };
+
+        const handleLogoutEvent = () => {
+            setAccessToken(null);
+        };
+
         window.addEventListener('storage', handleStorageChange);
+        window.addEventListener('loginEvent', handleLoginEvent);
+        window.addEventListener('logoutEvent', handleLogoutEvent);
+
         return () => {
             window.removeEventListener('storage', handleStorageChange);
+            window.removeEventListener('loginEvent', handleLoginEvent);
+            window.removeEventListener('logoutEvent', handleLogoutEvent);
         };
     }, []);
 
