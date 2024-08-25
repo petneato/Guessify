@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 
 import {
     RecoilRoot,
@@ -22,10 +23,23 @@ import './CSS/tailwind.css'
 
 
 const App = () => {
+    const [accessToken, setAccessToken] = useState(window.localStorage.getItem('access_token'));
+
+    useEffect(() => {
+        const handleStorageChange = () => {
+            setAccessToken(window.localStorage.getItem('access_token'));
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
+    }, []);
+
     return (
         <RecoilRoot>
             <div className="h-[100vh] flex flex-col">
-                <NavBar />
+                <NavBar key={accessToken} />
                 <div className="flex-grow overflow-hidden">
                     <Routes>
                         <Route path="/"  element={<LandingPage/>} />

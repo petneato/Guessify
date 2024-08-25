@@ -91,3 +91,32 @@ export const getLoginToken = async (code, codeVerifier) => {
         console.error('Error:', error);
     }
 };
+
+export const getUserProfile = async () => {
+    const token = window.localStorage.getItem('access_token');
+    if (!token) return null;
+
+    try {
+        const response = await fetch('https://api.spotify.com/v1/me', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('HTTP status ' + response.status);
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching user profile:', error);
+        return null;
+    }
+};
+
+export const signOut = async () => {
+    window.localStorage.removeItem('access_token');
+    window.localStorage.removeItem('profileImage');
+    // You may want to add any other cleanup here, such as clearing other user-related data from localStorage
+};
