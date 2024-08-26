@@ -1,6 +1,6 @@
 <p align="center"><img src="other/img/spotify.jpeg" height="100"></p>
 <p align="center"><img src="other/img/guessify.png"></p>
-<p align="center">Authors: Alec Montesano, Quinn Montgomery</p>
+<p align="center">Authors: Alec Montesano</p>
 
 # Introduction
 Guessify is a web-based game application built with React and NodeJS. Users can connect and play with their Spotify accounts by logging in and selecting a playlist to use. They can then choose to create or join a new game where they play through various rounds with other users while guessing whose playlist the currently queued song belongs to. Players are assigned points based on correct guesses with a leaderboard displaying the winner when an endgame state has been triggered.
@@ -9,10 +9,10 @@ Interfacing with Spotify's services and API allows for optimal user experience a
 
 ## Images
 <p>Below are some images of various screens within the game.</p>
-<p align="center">Splash Screen</p>
-<p align="center"><img src="other/img/main.png" width="850"></p>
+<p align="center">Landing Page</p>
+<p align="center"><img src="other/img/LandingPage.png" width="850"></p>
 <p align="center">Playlist Selection</p>
-<p align="center"><img src="other/img/playlists.png" width="1050"></p>
+<p align="center"><img src="other/img/Playlists.png" width="1050"></p>
 <p align="center">Game View</p>
 <p align="center"><img src="other/img/game.png" width="1050"></p>
 
@@ -23,7 +23,9 @@ The following diagram demonstrates this architecture flow while depicting the fr
 
 <p align="center">Overall Diagram</p>
 <p align="center">
-    <img src="other/img/arch.png" width="650">
+    <!-- <img src="other/img/arch.png" width="650"> -->
+    Architecture Diagram Coming Soon
+
 </p>
 
 
